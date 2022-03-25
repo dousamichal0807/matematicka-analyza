@@ -1,0 +1,40 @@
+\vfill{}
+\pagebreak
+\section{Derivace mocninných funkcí}
+
+Teprve nyní se dostáváme k~tomu, jak vlastně derivovat. Začněme mocninnými funkcemi (tj. funkcemi ve~tvaru $f(x) = ax^m$). Takový výraz zderivujeme tak, že ho nejprve vynásobíme exponentem mocniny, a~následně exponent snížíme o~jedničku. Tento postup platí pro exponent v~oboru všech reálných čísel. Tomuto pravidlu říkáme \emph{řetězové pravidlo}. Formálněji jsme schopni výrokem zapsat toto pravidlo:
+\begin{equation*}
+    \forall (a, m \in \mathbb{R}):
+    \frac{\text{d}}{\text{d}x}\left(ax^m\right) = amx^{m - 1}
+\end{equation*}
+
+Zkusme nějaký příklad. Mějme funkci $f(x) = 3x^5$. Tu chceme zderivovat. Nejprve tedy celý výraz vynásobíme exponentem. Dostaneme tedy výraz $15x^5$. Nyní stačí od exponentu odečíst jedničku. Poté tedy vznikne funkce $f'(x) = 15x^4$, která je derivací funkce $f(x)$, tedy můžeme zapsat:
+\begin{equation*}
+    \frac{\text{d}}{\text{d}x} \left( 3x^5 \right) = 15x^4.
+\end{equation*}
+
+\subsubsection*{Úlohy}
+\begin{enumerate}
+    \item Nejdříve spočítejte diferenciál (derivaci) výrazů uvedených níže. Nezapomeňte, že všechny ostatní proměnné, na~jejichž základě nederivujeme, se chovají jako konstanty. Též nezapomeňte, že každou konstantu $k$ lze vyjádřit jako $kx^0$, kde $x$ jste schopni zaměnit za~jakoukoliv jinou proměnnou. Taktéž každou odmocninu jsme schopni zapsat jako mocninu. Následně odpovídejte na otázky:
+    \begin{align*}
+        &\frac{\text{d}}{\text{d}t} \left( \frac38 t^8 \right) &
+        &\frac{\text{d}}{\text{d}x} \left( \sqrt{x} \right) &
+        &\frac{\text{d}}{\text{d}z} \left( 2,7z \right) &
+        &\frac{\text{d}}{\text{d}v} \left( \frac12 mv^2 \right) \\
+        &\frac{\text{d}}{\text{d}x} \left( \pi \right) &
+        &\frac{\text{d}}{\text{d}h} \left( 120h \right) &
+        &\frac{\text{d}}{\text{d}s} \left( 8s^2 \right) &
+        &\frac{\text{d}}{\text{d}q} \left( 8q \right)
+    \end{align*}
+
+    \item Co se stalo s~lineárními jednočleny? Odpovídá to tomu, co jsme říkali v~úvodu o~derivacích?
+    \item Co se stalo s~absolutními členy? Jak působí absolutní člen v~polynomu? Mění se jím míra růstu či klesání polynomu?
+    \item Jak dopadly výrazy, které nebyly závislé na~proměnné, na jejíž základě jsme derivovali? Jak to souvisí s~chováním absolutních členů.
+\end{enumerate}
+
+\subsection{Geometrická představa}
+
+Nyní se pokusme řetězové pravidlo zobrazit geomeetricky. Nechť máme čtverec se~stranou o~proměnné délce $x$. Obsah tohoto čtverce jsme schopni spočítat pomocí vzorce. Nechť tedy funkce $S(x) = x^2$ počítá obsah čtverce. Co se stane, když jisté $x$ zvětšíme o~nepatrnou změnu $\text{d}x$? Poté se nám změní i~povrch čtverce. Označme změnu plochy čtverce jako $\text{d}S$. Nyní si problém zobrazíme geometricky. Stranu čtverce jsme zvětšili o~$\text{d}x$:
+
+% TODO: Obrázek
+

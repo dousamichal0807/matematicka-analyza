@@ -1,0 +1,18 @@
+\vfill{}
+\pagebreak
+\section{Neformální definice skrz příklad}
+
+Tentokrát začneme vcelku neobvyklým příkladem. Sedíte v autě a nevidíte ven. Vidíte však tachometr ukazující rychlost. Auto se rozjede, vy zaznamenáváte třeba každou desetinu sekundy snímek tachometru, abyste věděli, jakou má rychlost v daném momentu. Auto se za chvíli zastavilo. Následně jste našli dostatečně přesnou funkci okamžité rychlosti $v(t)$.
+
+Poté jste dostali úlohu, abyste spočítali vzdálenost, jakou jste ujeli během této jízdy bez výhledu ven. Když odpovíte špatně, čeká vás něco zlého, na co byste ani radši nemysleli. Jak takový příklad vyřešit? Naší záchranou bude právě integrál.
+
+Víte, že auto jelo celkem 10 sekund. Okamžitou rychlost jste odhadli grafem funkce $v(t) = \frac{1}{50}t^4 - \frac{2}{5}t^3 + 2t^2$.
+Jsou toto dostatečné údaje k~tomu, abychom spočítali výsledek?
+
+Jsou. Nejdříve si však zvolíme nějaký jednoduchý příklad, kdy rychlost bude po~celou dobu konstantní. Auto opět pojede 10~sekund rychlostí 5~m/s. Jaká tedy bude celková ujetá vzdálenost? Prostě a~jednoduše $5 \cdot 10 = 50$ metrů. Zároveň si povšimněme, že pokud naneseme na graf konstantní funkci $v(t) = 5 \text{ m/s}$, tak zjistíme, že plocha pod grafem mezi hodnotami $t = 0\text{ s}$ a~$t = 10\text{ s}$ činí právě 50 jednotek, tj. 50 metrů. Chápu, že představa, že počítáme s~metry jako s~jednotkou obsahu, je poněkud nezvyklá, nicméně vidíme, že naším velmi jednoduchým příkladem jsme spočítali plochu pod~grafem konstrantní funkce $v(t) = 5$~m/s pro~$t$ od~0~sekund do~10~sekund. Matematicky vyjádřeno:
+
+\begin{equation*}
+\int_{0}^{10} v(t) \text{ d}x = 50
+\end{equation*}
+
+Všimněte si, jak jsou zapsané hraniční hodnoty 0~sekund a~10~sekund v~integrálu výše.

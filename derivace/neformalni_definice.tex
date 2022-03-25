@@ -1,0 +1,38 @@
+\vfill{}
+\pagebreak
+\section{Neformální definice skrz příklad}
+
+Mějme příklad, ve~kterém budeme chtít vědět okamžité zrychlení auta v~daném časovém momentě. Začněme však průměrným zrychlením. Fyzika v~případě změny (skoku) hodnoty jisté proměnné používá velké řecké písmeno delta, např. $\Delta v$ by mohlo představovat změnu rychlosti a~$\Delta t$ změnu času, tj. délku jistého časového úseku. Proto pro~průměrné zrychlení auta určitého měřeného časového úseku, označme jej $a_{\text{avg}}$,  bychom napsali:
+
+\begin{equation*}
+    a_{\text{avg}} = \frac{\Delta v}{\Delta t}
+\end{equation*}
+
+Konkrétně, pokud by auto zrychlilo o~7,2~km/h~=~2~m/s za půl vteřiny, platilo by, že $\Delta v~= {2 \text{ m}/\text{s}}$ a~$\Delta t = {0,5 \text{ s}}$. Proto by průměrné zrychlení během takové doby bylo
+
+\begin{equation*}
+    a_{\text{avg}}
+    = \frac{\Delta v}{\Delta t}
+    = \frac{2 \text{ m} \cdot \text{s}^{-1}}{0,5 \text{ s}}
+    = 4 \text{ m} \cdot \text{s}^{-2}\text{.}
+\end{equation*}
+
+Zároveň, pokud auto zpomalí, rozdíl rychlostí je záporný, takže i~zrychlení je záporné. Nicméně se však jedná o~průměrné zrychlení. Pokud cheme okamžité zrychlení, musíme učinit pár úprav.
+
+Musíme změřit rychlost v~měřeném časovém úseku pokud možno co nejvícekrát, aby průměrné zrychlení v~době mezi dvěma sousedními měřeními rychlosti se co nejvíce blížilo okamžitému zrychlení. To nám umožňuje zavést okamžité zrychlení jako funkci závislou na~čase, zrovna tak i~okamžitou rychlost. Snažili bychom se funkční předpisy pro okamžitou rychlost $v(t)$ a~okamžité zrychlení~$a(t)$ vyjádřit co nejpřesněji na~základě naměřených dat. Funkce $v(t)$ a~$a(t)$ budou tedy spojité.
+
+Jak již bylo řečeno, okamžitou rychlost bychom poté počítali jako rozdíl dvou velmi blízkých sousedních hodnot, mezi jejichž časy měření je velmi krátký časový úsek. Označme si nepatrnou změnu rychlosti jako $\text{d} v$ místo $\Delta v$. Ta bude kladná při zrychlování a~záporná při zpomalování. Velmi malý časový úsek mezi měřeními jako $\text{d} t$ místo $\Delta t$. Tehdy bude okamžité zrychlení v~daném čase $t$ rovno:
+\begin{equation*}
+    a(t) = \frac{\text{d}v}{\text{d}t}
+\end{equation*}
+
+Měli byste vidět jistou podobnost mezi výše uvedeným výrazem a~vztahem, který určuje vztah mezi dříve zmiňovanými obecnými funkcemi $f(x)$ a~$f'(x)$. Výrazy $\text{d}v$ a~$\text{d}t$ tedy představují velmi malou změnu rychlosti a~času. Změna hodnoty funkce pro dvě velmi blízké hodnoty argumentu poměrně spolehlivě určuje, jestli je funkce v~okolí rostoucí (změna je kladná), klesající (změna je záporná), případně ani jedno (změna je nulová).
+
+Pro stále menší rozdíl mezi dvěma blízkými hodnotami argumentu (tj. $\text{d}x$) bude stále menší změna hodnoty funkce (tj. $\text{d}f$) a~jejich podíl $\frac{\text{d}f}{\text{d}x}$ se bude stále hodnotě derivace funkce přibližovat. Z~toho vyplývá, že pokud derivujeme funkci $v(t)$ v~závislosti na~$t$, derivací je tedy funkce $a(t)$.
+
+\subsubsection*{Úlohy}
+\begin{enumerate}
+    \item Mějme funkci $s(t)$ určující, jakou vzdálenost jsme ujeli za určitý čas. Jaká funkce (veličina) je derivací funkce $s(t)$?
+    
+    \item Pohybová (kinetická) energie je závislá na~rychlosti pohybu daného tělesa, rovněž jako hybnost. Hmotnost tělesa se nemění. Jaký vztah je mezi kinetickou energií a~hybností? V~případě, že si již vzorce nepamatujete, můžete je nalézt na internetu. \textbf{Nápověda:} Nakreslete si graf hybnosti a~kinetické energie v~závislosti na~rychlosti pro předem danou hmotnost do~jedné soustavy souřadnic.
+\end{enumerate}
