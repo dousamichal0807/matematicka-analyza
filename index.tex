@@ -1,15 +1,33 @@
 \documentclass{book}
 
+\usepackage[utf8]{inputenc}
+\usepackage[svgnames]{xcolor}
+
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage[czech]{babel}
+\usepackage{csquotes}
+\usepackage{esdiff}
+\usepackage{eucal}
+\usepackage{float}
 \usepackage[b5paper, left=2.5cm, right=2.5cm, top=3cm, bottom=2.5cm]{geometry}
 \usepackage{icomma}
-\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
 \usepackage{nccmath}
-\usepackage[svgnames]{xcolor}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{wrapfig}
 
+% Nastavení PGF
+\pgfplotsset{compat=1.18}
+
+% Nastavení TikZ
+\usetikzlibrary{calligraphy}
+\usetikzlibrary{decorations.pathreplacing}
+
+% Další nastavení
 \tolerance 1414
 \hbadness 1414
 \emergencystretch 1.5em
@@ -17,10 +35,16 @@
 \widowpenalty=10000
 \vfuzz \hfuzz
 \raggedbottom
-
 \setlength{\parindent}{1cm}
 \setlength{\parskip}{0.2cm}
 \renewcommand{\baselinestretch}{1.15}
+
+% Zkratky pro číselné množiny
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\reals}{\mathbb{R}}
+
+% Definice formátu
+\theoremstyle{definition} \newtheorem{exercise}{Úloha}[section]
 
 \title{Matematická analýza}
 \author{Michal Douša}
@@ -33,8 +57,10 @@
 \end{titlepage}
 
 \tableofcontents
-\input{derivace/_index.tex}
+\input{limita.tex}
+\input{derivace.tex}
 \input{integral/_index.tex}
-\input{reseni/_index.tex}
+\input{reseni.tex}
+\listoffigures
     
 \end{document}
