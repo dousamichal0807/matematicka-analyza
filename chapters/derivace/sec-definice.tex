@@ -1,0 +1,254 @@
+\section{Definice}
+\label{sec:derivace-definice}
+
+\emph{Derivace}, někdy též \emph{diferenciál}, vyjadřuje, v~jaké míře jistá
+funkce~$f$ roste či klesá. Derivace je takový prostředek, který umožňuje, pokud
+možno, pro všechna ${x \in \fndom(f)}$ určit, jakým způsobem funkce roste či
+klesá v~dané hodnotě~$x$. Nejdříve začneme myšlenku derivace formovat intuitivně
+a~následně ji zformalizujeme v~sekci~\ref{subsec:derivace-definice-formal}.
+
+\subsection{Derivace pomocí tečen}
+\label{subsec:derivace-pomoci-tecen}
+
+Určit, jak funkce roste či klesá, je dost obtížné. Máme ale přímku. Je-li přímka
+grafem jisté funkce ${g(x) = kx + q}$, za~míru růstu resp.~poklesu funkčních hodnot
+můžeme označit koeficient~$k$, tj. směrnici přímky, která je grafem funkce~$g$.
+Grafem funkce je ale většinou křivka, například parabola, sinusoida, hyperbola či
+kuboida.
+
+To ale ničemu nevadí -- ke~křivce jsme schopni zkonstruovat tečnu prakticky kdekoliv
+se nám zachce -- a~tečna je již přímka. Můžeme tedy prohlásit, že funkce~$f$ v~určité
+hodnotě $x$ roste či klesá stejnou mírou, jako tečna v~tom stejném bodě. Přesněji:
+pro každou hodnotu ${x \in \fndom(f)}$ se bude hodnota derivace v~dané hodnotě $x$
+rovnat směrnici tečny $t$ ke~grafu funkce~$f$ s~bodem dotyku $T[x, f(x)]$. To
+samozřejmě jen tehdy, pokud tečna~$t$ existuje a~jsme schopni určit její směrnici.
+
+Také si všimněte, že hodnotám ${x \in \fndom(f)}$ určíme maximálně jedno reálné
+číslo, které určuje strmost grafu funkce~$f$. Výstupem derivace je proto nějaká jiná
+funkce, kterou označíme jako $f'$, jejíž funkční hodnota reprezentuje právě strmost
+grafu původní funkce~$f$.
+
+To je demonstrováno na~obrázku~\ref{fig:derivace-tecny}, kde zvolíme body $T_1[x_1, y_1]$ až
+$T_7[x_7, y_7]$ ležící na~grafu funkce ${f(x) = \frac{1}{2} x^3 - \frac{3}{2} x +
+\frac{1}{2}}$. Zvolené body jsou body dotyku tečen $t_1$ až $t_7$ se~směrnicemi $k_1$
+až $k_7$. Proto na~grafu funkce~$f'$, která je derivací funkce~$f$, budou ležet body
+$A_1[x_1, k_1]$ až $A_7[x_7, k_7]$.
+
+\begin{figure}[ht!]
+    \centering
+    \input{chapters/derivace/fig-tecny.tex}
+    \caption{Ukázka, jak by derivace měla fungovat}
+    \label{fig:derivace-tecny}
+\end{figure}
+
+\begin{exercise}[Tečna bez směrnice]
+    Kdy můžeme mít tečnu, jejíž směrnici nebudeme schopni určit? Jak musí být taková
+    tečna, či obecně přímka, orientovaná? Existuje funkce a~k~ní určitý bod na~grafu
+    funkce, kde jsme schopni zkonstruovat tečnu, u~které směrnici nejsme schopni
+    určit? Pokud ano, uveďte alespoň jeden příklad takové funkce a~příslušného bodu
+    na~grafu.
+\end{exercise}
+
+\begin{lemma}
+    Derivaci~$f'(x)$ můžeme být schopni určit pouze na~spojitých úsecích, vyjma
+    krajních hodnot a~hodnot, kde se graf zalomí.
+
+    \begin{proof}
+        Na~krajních bodech spojitého úseku nejsme schopni zkonstruovat tečnu stejně
+        jako v~bodech, kde se jakákoliv křivka zalomí.
+    \end{proof}
+\end{lemma}
+
+\begin{lemma}
+    Směrnice tečny určuje, jestli graf funkce roste či klesá:
+    \begin{itemize}
+        \item Je-li směrnice kladná, graf zde určitě roste.
+        \item Analogicky je-li směrnice záporná, graf zde určitě klesá.
+        \item Je-li tečna kolmá k~ose $x$, tj. rovnoběžná s~osou $y$, nejsme
+        schopni tečnu zapsat pomocí lineární funkce, jejíž grafem je tečna
+        sama, nejsme schopni určit míru růstu a derivace zde bude nedefinovaná.
+        \item Je-li tečna v~určitém bodě grafu vodorovná s~osou $x$, směrnice
+        musí být nulová. Pozor -- to však ještě neznamená, že je v~blízkosti
+        tohoto bodu funkce kostantní (nalezení takových funkcí nechávám jako
+        úlohu).
+    \end{itemize}
+\end{lemma}
+
+\begin{lemma}
+    Nechť $\mathcal{F}$ je množina všech funkcí ${f: \reals \mapsto \reals}$. Poté se
+    na~derivaci můžeme dívat jako na~zobrazení množiny $\mathcal{F}$ do~množiny
+    $\mathcal{F}$.
+
+    \begin{proof}
+        To je dáno tím, že derivace je operace, jejíž vstupem může být jakákoliv
+        funkce ${f \in \mathcal{F}}$ a~výstupem je jiná funkce ${f' \in \mathcal{F}}$.
+        I~kdyby byla funkce~$f$ tvořena pouze izolovanými body, výstupem je stále
+        funkce~$f'$, jejíž ${\fndom(f') = \fnran(f') = \emptyset}$.
+    \end{proof}
+\end{lemma}
+
+\begin{lemma}
+    Je-li $f'$ derivací funkce~$f$ a~$\fndom(f)$, platí, že
+    ${\fndom(f') \subset \fndom(f)}$.
+
+    \begin{proof}
+        To vyplývá z~faktu, že funkci $f'$ přiřazujeme hodnotu pro určité
+        ${x \in \fndom(f)}$, pokud vůbec, pouze pokud je $f(x)$ definované.
+    \end{proof}
+\end{lemma}
+
+\begin{lemma}
+    Nechť existují funkce~$f$ a~$g$, kde ${g(x) = f(x) + q}$
+    a~${q \in \reals}$ je konstanta. Poté platí, že
+    \begin{equation*}
+        \fracdiff{f}{x} = \fracdiff{g}{x}
+    \end{equation*}
+
+    \begin{proof}
+        Přičtením konstanty $q$ k~funkci~$f$ se graf funkce~$f$ posune podle
+        osy~$y$. To však nezmění směrnici jakékoliv tečny ke~grafu funkce, kterou
+        jsme schopni zkonstruovat. Každá tečna se posune stejným způsobem, jako
+        původní funkce~$f$. Protože tečna se posouvá pouze svisle, nezmění se
+        $x$-ová souřadnice tečného bodu. Protože se směrnice tečny se při posunu
+        nezmění, ani se nezmění $x$-ová souřadnice tečného bodu, nemůže se změnit
+        ani derivace funkce.
+    \end{proof}
+\end{lemma}
+
+\begin{exercise}
+    Nalezněte alespoň jednu funkci, jejíž derivace v~určité hodnotě $x$ je nulová,
+    tj. směrnice tečny grafu v~daném bodě je nulová, a~přesto nemůžeme v~sebemenším
+    okolí prohlásit funkci jako konstantní. Nápověda: Začněte od~těch nejjednodušších
+    funkčních předpisů, které znáte -- určitě i~tam najdete takové případy.
+\end{exercise}
+
+\subsection{Formální zápis}
+\label{subsec:derivace-formalni-zapis}
+
+Nakonec bychom si řekli, jak vztah, že funkce~$f'$ je derivací (diferenciálem) funkce
+$f$, zapsat. Vztah mezi funkcemi~$f$ a~$f'$ budeme zapisovat tímto způsobem:
+\begin{equation*}
+    \fracdiff{f}{x} = f'
+\end{equation*}
+Proč tento velmi zvláštní zápis? To rozebereme v~následujícím oddílu. Zastavme se
+však na chvíli.
+
+Prozatím jsme se omezovali jen na~funkci, kterou jsme označili většinou jako $f$,
+a~řekli, že její derivace bude označená stejně, ale bude tam mít navíc čárku,
+např.~$f'$. Pokud však budeme derivovat spíše výraz, než-li funkci, bude lepší, když
+použijeme nějaký vhodný přímý zápis, než abychom pokaždé museli říct, že výraz je
+funkčním předpisem nějaké funkce. Proto by se nám hodil způsob, jak zapsat derivaci
+výrazu (který funkce stejně představuje). Existuje hned několik zavedených způsobů.
+\begin{align*}
+    \fracdiff{}{x} \left( \frac12 x - 3 \right) &= \frac12 &
+    \fracdiff{\left( \frac12 x - 3 \right)}{x}  &= \frac12 &
+    \left( \frac12 x - 3 \right)'               &= \frac12
+\end{align*}
+Všechny tři formy zápisu vyjadřují, že diferenciál výrazu ${\frac12 x - 3}$
+v~závislosti na~$x$ je konstanta rovna $\frac12$. Nejčastěji se využívá možnost vlevo
+-- umožňuje přehlednější zápis i mnohem složitějších výrazů. Možnost vpravo se
+nevyužívá, je-li ve vzorci více proměnných (resp.\ argumentů funkce), na~jejichž
+závislosti jsme schopni derivovat.
+
+\subsection{Derivace jako podíl dvou malých změn}
+\label{subsec:derivace-jako-podil}
+
+Mějme příklad, ve~kterém budeme chtít vědět okamžité zrychlení auta v~daném časovém
+momentě. Začněme však průměrným zrychlením. Fyzika v~případě změny (skoku) hodnoty
+jisté proměnné používá velké řecké písmeno delta, např. $\Delta v$ by mohlo
+představovat změnu rychlosti a~$\Delta t$ změnu času, tj. délku jistého časového
+úseku. Proto pro~průměrné zrychlení auta určitého měřeného časového úseku, označme
+jej $a_{\text{avg}}$,  bychom napsali:
+
+\begin{equation*}
+    a_{\text{avg}} = \frac{\Delta v}{\Delta t}
+\end{equation*}
+
+Konkrétně, pokud by auto zrychlilo o~7,2~km/h~=~2~m/s za půl vteřiny, platilo by, že
+${\Delta v~= 2 \text{ m}/\text{s}}$ a~${\Delta t = 0,5 \text{ s}}$. Proto by průměrné
+zrychlení během takové doby bylo
+\begin{equation*}
+    a_{\text{avg}}
+    = \frac{\Delta v}{\Delta t}
+    = \frac{2 \text{ m} \cdot \text{s}^{-1}}{0,5 \text{ s}}
+    = 4 \text{ m} \cdot \text{s}^{-2}\text{.}
+\end{equation*}
+
+Zároveň, pokud auto zpomalí, rozdíl rychlostí je záporný, takže i~zrychlení je
+záporné. Nicméně se však jedná o~průměrné zrychlení. Pokud cheme okamžité zrychlení,
+musíme učinit pár úprav. Musíme změřit rychlost v~měřeném časovém úseku pokud možno
+co nejvícekrát, aby průměrné zrychlení v~době mezi dvěma sousedními měřeními
+rychlosti se co nejvíce blížilo okamžitému zrychlení.
+
+To nám umožňuje zavést okamžité zrychlení jako funkci závislou na~čase, zrovna tak
+i~okamžitou rychlost. Snažili bychom se funkční předpisy pro okamžitou rychlost
+$v(t)$ a~okamžité zrychlení~$a(t)$ vyjádřit co nejpřesnějším funkčním předpisem
+na~základě naměřených dat. Funkce~$v(t)$ a~$a(t)$ budou tedy spojité a~pomocí tečen
+jsme schopni určit graf derivace obou funkcí.
+
+Ale zároveň si povšimněme, že pokud budou naše měření přesnější a~přesnější, poté se
+každá přímka vedoucí skrz jakékoliv dva sousední body bude stále více a~více
+přibližovat tečně ke~grafu funkce -- a~toho využijeme.
+
+Označme si nepatrnou změnu
+rychlosti jako $\diff{v}$ místo $\Delta v$. Ta bude kladná při zrychlování
+a~záporná při zpomalování. Velmi malý časový úsek mezi měřeními jako $\diff{t}$
+místo $\Delta t$. Tehdy bude okamžité zrychlení v~daném čase $t$ rovno
+\begin{equation*}
+    a(t) = \fracdiff{v}{t}(t)
+\end{equation*}
+a~tento poměr velmi malých hodnot bude velmi dobře odhadovat směrnici tečny a~tudíž
+i~hodnotu derivace funkce $v(t)$. Z~toho vyplývá, že derivací funkce $v(t)$ je tedy
+funkce $a(t)$. Nyní již stačí tuto myšlenku formalizovat. Předtím ale ještě pár úloh.
+
+\begin{exercise}
+    Mějme funkci $s(t)$ určující, jakou vzdálenost jsme ujeli za~určitý čas. Jaká
+    funkce (veličina) je derivací funkce~$s(t)$?
+\end{exercise}
+
+\begin{exercise}
+    Pohybová (kinetická) energie je závislá na~rychlosti pohybu daného tělesa, rovněž
+    jako hybnost. Hmotnost tělesa se standardně nemění. Jaký vztah je mezi kinetickou
+    energií a~hybností? V~případě, že si již vzorce nepamatujete či je neznáte,
+    můžete využít internetu. Nápověda: Nakreslete si graf hybnosti a~kinetické
+    energie v~závislosti na~rychlosti pro předem danou hmotnost do~jedné soustavy
+    souřadnic.
+\end{exercise}
+
+\subsection{Formální definice}
+\label{subsec:derivace-definice-formal}
+
+Opět máme funkci~$f$, jejíž derivací je funkce~$f'$. Abychom formálně definovali
+derivaci musíme nejlépe sestrojit výraz, který je roven~$f'$. K~tomu potřebujeme dvě
+hodnoty na~ose $x$, z~nichž spočítáme funkční hodnoty a~$f'$ bude rovno podílu
+rozdílu funkčních hodnot a rozdílu argumentů (těch dvou hodnot na~ose $x$). Přitom
+ale potřebujeme vyjádřit, čím blíže jsou ty dvě hodnoty na~ose $x$, tím více se
+k~derivaci blížíme. K~tomu využijeme limitu:
+
+\begin{definition}
+    Mějme funkci~$f$ definovanou v~určitém okolí ${\mathcal{U}(x; \epsilon)}$, kde
+    ${\epsilon \in \reals^{+}}$. Existuje-li limita
+    \begin{equation*}
+        L = \lim_{a \to x} \frac{f(x) - f(a)}{x - a}
+    \end{equation*}
+    a~její hodnota je konečná, limita~$L$ je funkční hodnota derivace funkce~$f$
+    v~dané hodnotě~$x$.
+\end{definition}
+
+Tato definice je sice správná, ale není v~ní příliš vidět ten náš malý rozdíl mezi
+dvěma hodnotami na~ose $x$ -- v~našem případě proměnných $x$ a~$a$. Proto určíme
+rozdíl $h = a - x$ a~přepíšeme zlomek tak, abychom nepoužili proměnnou~$a$.
+Po~určitých úpravách dostaneme odlišný výraz:
+
+\begin{definition}
+    Mějme funkci~$f$ definovanou v~určitém okolí ${\mathcal{U}(x; \epsilon)}$, kde
+    ${\epsilon \in \reals^{+}}$. Existuje-li limita
+    \begin{equation*}
+        L = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
+    \end{equation*}
+    a~její hodnota je konečná, limita~$L$ je funkční hodnota derivace funkce~$f$
+    v~dané hodnotě~$x$.
+\end{definition}
+
+S~tímto způsobem definice se zřejmě setkáte častěji. Mějte ale na~paměti, že žádná
+z~definic není \emph{správnější} či \emph{přesnější}.

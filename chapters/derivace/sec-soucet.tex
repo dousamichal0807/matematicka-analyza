@@ -1,0 +1,44 @@
+\section{Derivujeme celé polynomy}
+\label{sec:derivace-polynomy}
+
+Polynom lze definovat tak, že se jedná o~součet mocninných funkcí s~exponentem, který
+je přirozený nebo nulový. Pak takovou mocninnou funkci nazýváme jednočlenem. Polynom,
+případně jakýkoliv součet lze derivovat po~sčítancích, které nakonec nazpátek
+sečteme.
+
+Nechť máme funkci $P(x)$, která je součtem funkcí $f_1(x)$ až $f_n(x)$ ($n$ určuje počet funkcí):
+\begin{equation*}
+    P(x) = \sum_{i = 1}^n f_i(x) = f_1(x) + f_2(x) + \cdots + f_n(x),
+\end{equation*}
+poté derivaci spočítáme takto:
+\begin{equation*}
+    \frac{\mathrm{d}P}{\diff{x}} = \sum_{i = 1}^n \frac{\mathrm{d}f_i}{\diff{x}}(x)
+    = \frac{\mathrm{d}f_1}{\diff{x}}(x)
+    + \frac{\mathrm{d}f_2}{\diff{x}}(x)
+    + \cdots + \frac{\mathrm{d}f_n}{\diff{x}}(x),
+\end{equation*}
+jinak řečeno, derivujeme postupně po~sčítancích. Přibližme si danou problematiku na~příkladu. Mějme funkci $P(x) = 3x^4 - x^3 + x^2 \sqrt2 + 5x + \sin \frac34 \pi$, pro kterou chceme spočítat derivaci. Jak již bylo řečeno, derivujeme po sčítancích:
+\begin{equation*}
+    \frac{\mathrm{d}P}{\diff{x}}
+    = \fracdiff{}{x} \left( 3x^4 \right)
+    + \fracdiff{}{x} \left( -x^3 \right)
+    + \fracdiff{}{x} \left( x^2 \sqrt2 \right)
+    + \fracdiff{}{x} \left( 5x \right)
+    + \fracdiff{}{x} \left( \sin \frac34 \pi \right)
+\end{equation*}
+Zderivujeme-li každý sčítanec zvlášť, měli bychom se dostat k~řešení:
+\begin{equation*}
+    \frac{\mathrm{d}P}{\diff{x}} = 12x^3 - 3x^2 + 2x \sqrt2 + 5
+\end{equation*}
+
+\begin{exercise}
+    Vypočítejte derivaci následujících funkcí. Nezapomeňte, které hodnoty jsou konstanty:
+    \begin{enumerate}
+        \item $\displaystyle P(x)
+        = \frac{\pi}{6} x^6 - 10\sqrt[3]{x^8} + 5,4x^{\sqrt2} - \arccos \frac{1}{6}$
+        \item $\displaystyle Q(x)
+        = \frac{10}{3} x^7 - x^\pi \sqrt3 + 2,5x^{3,5} + \arcsin \frac{\sqrt2}{2}$
+        \item $\displaystyle R(x)
+        = \frac{\sqrt{e}}{\pi} x^5 + x^4 \sin \frac{\pi}{8} - 15x^2 + 10$
+    \end{enumerate}
+\end{exercise}

@@ -1,0 +1,100 @@
+\section{Diferenciál mocninné funkce}
+\label{sec:diferencial-mocninne-funkce}
+
+Pokračujme mocninnými funkcemi (tj. funkcemi ve~tvaru $f(x) = ax^m$). Takovou funkci
+zderivujeme tak, že ji nejprve vynásobíme exponentem mocniny a~následně exponent
+snížíme o~jedničku. Tento postup platí pro exponent v~oboru všech reálných čísel.
+Tomuto pravidlu říkáme \emph{řetězové pravidlo}. Formálněji jsme schopni výrokem
+zapsat toto pravidlo:
+\begin{equation*}
+    \forall a, m \in \reals :
+    \fracdiff{}{x} \left(ax^m\right) = amx^{m - 1}
+\end{equation*}
+
+Zkusme nějaký příklad. Mějme funkci $f(x) = 3x^5$. Tu chceme zderivovat. Nejprve tedy
+celý výraz vynásobíme exponentem. Dostaneme tedy výraz $15x^5$. Nyní stačí
+od~exponentu odečíst jedničku. Poté tedy vznikne funkce $f'(x) = 15x^4$, která je
+derivací funkce $f(x)$, tedy můžeme zapsat:
+\begin{equation*}
+    \fracdiff{}{x} \left( 3x^5 \right) = 15x^4.
+\end{equation*}
+
+\begin{exercise}
+    Spočítejte diferenciál (derivaci) výrazů uvedených níže. Nezapomeňte, že každou
+    konstantu $k$ lze vyjádřit jako $kx^0$, kde $x$ jste schopni zaměnit
+    za~jakoukoliv jinou proměnnou. Taktéž každou odmocninu jsme schopni zapsat jako
+    mocninu.
+    \begin{align*}
+        &\fracdiff{}{t} \left( \frac38 t^8 \right) &
+        &\fracdiff{}{x} \left( \sqrt{x} \right) &
+        &\fracdiff{}{z} \left( 2,7z \right) &
+        &\fracdiff{}{v} \left( \frac12 mv^2 \right) \\
+        &\fracdiff{}{x} \left( \pi \right) &
+        &\fracdiff{}{h} \left( 120h \right) &
+        &\fracdiff{}{s} \left( 8s^2 \right) &
+        &\fracdiff{}{q} \left( 8q \right)
+    \end{align*}
+\end{exercise}
+
+\subsection{Mocninné funkce geometricky}
+\label{subsec:derivace-mocn-fce-geometricky}
+
+Nyní se pokusme řetězové pravidlo zobrazit geometricky. Nejdříve si to ukážeme pro
+druhou mocninu.
+
+Nechť máme čtverec se~stranou o~proměnné délce $x$. Obsah tohoto čtverce jsme schopni
+spočítat pomocí vzorce. Nechť tedy funkce $S(x) = x^2$ počítá obsah čtverce. Co se
+stane, když jisté $x$ zvětšíme o~nepatrnou změnu $\diff{x}$? Poté se nám změní
+i~povrch čtverce. Označme změnu plochy čtverce jako $\diff{S}$. Nyní si problém
+zobrazíme geometricky. Stranu čtverce jsme zvětšili o~$\diff{x}$ a~nový čtverec
+vhodně oddělili na~čtyři části:
+
+\begin{figure}[h!]
+    \centering
+    \input{chapters/derivace/fig-rozdel-ctverec.tex}
+    \caption{Geometrická představa čtverce, jehož stranu~$x$ jsme zvětšili o~$\diff{x}$.}
+    \label{fig:derivace-rozdel-ctverec}
+\end{figure}
+
+Původní čtverec je zobrazen šedě a~nové přírůstky jsou zobrazeny barevně. Takto jsme
+schopni schopni vyjádřit změnu obsahu $\diff{S}$ pomocí barevně vyznačených
+oblastí v~obrázku~\ref{fig:derivace-rozdel-ctverec} (viz rovnice~\ref{eq:derivace-2mocnina-1}).
+Derivaci vyjádříme vydělením~$\diff{x}$ (rovnice~\ref{eq:derivace-2mocnina-2}).
+Ale máme menší problém -- přebývá nám tam $\diff{x}$. Protože však $\diff{x}$
+chceme co nejblíže k~nule (podle definice derivace pomocí limity), nebude nám vadit,
+když $\diff{x}$ vypustíme (rovnice~\ref{eq:derivace-2mocnina-3}) a~funkci~$S(x)$
+nahradíme jejím předpisem (rovnice~\ref{eq:derivace-2mocnina-4}):
+
+\begin{subequations}
+\begin{align}
+    \diff{S} &= 2 \cdot {\color{accentColor} x \, \diff{x}} + {\color{accentColor!50!gray} \diff{x}^2}
+    \label{eq:derivace-2mocnina-1} \\
+    \fracdiff{S}{x} &= 2x + \diff{x}
+    \label{eq:derivace-2mocnina-2} \\
+    \fracdiff{S}{x} &= 2x
+    \label{eq:derivace-2mocnina-3} \\
+    \fracdiff{}{x} \left( x^2 \right) &= 2x
+    \label{eq:derivace-2mocnina-4}
+\end{align}
+\end{subequations}
+
+Jak ověřit pravidlo pro třetí mocninu? Podobně, jen místo čtverce máme krychli. Opět
+nám poslouží obrázek krychle, jejíž stranu $x$ jsme zvětšili o~$\diff{x}$ a~vhodně
+rozdělili na~osm částí:
+
+\begin{figure}[!ht]
+    \centering
+    \input{chapters/derivace/fig-rozdel-krychle.tex}
+    \input{chapters/derivace/fig-rozdel-krychle2.tex}
+    \caption{Krychle, jejíž hranu~$x$ jsme zvětšili o~$\diff{x}$. Změna $\diff{x}$
+    je zobrazena velká -- opět kvůli názornosti.}
+    \label{fig:derivace-rozdel-krychle}
+\end{figure}
+
+Naprosto stejným způsobem jsme schopni vyjádřit změnu objemu krychle pomocí objemu
+barevných částí:
+\begin{equation*}
+    \mathrm{d}V = 3 \cdot {\color{orange} x^2 \diff{x}}
+        + 3 \cdot {\color{cyan!70!black} x \, \diff{x}^2}
+        + {\color{purple} \diff{x}^3}
+\end{equation*}

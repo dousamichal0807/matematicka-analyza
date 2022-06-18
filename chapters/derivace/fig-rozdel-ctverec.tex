@@ -1,15 +1,15 @@
 \begin{tikzpicture}
-    \filldraw[fill=lightgray, draw=black] (0, 0) rectangle (4, -4);
+    \filldraw[fill=black!10, draw=gray] (0, 0) rectangle (4, -4);
     \draw (2, -2) node[anchor=center] {\huge $S(x)$};
-    \filldraw[fill=orange, draw=black] (4.1, 0) rectangle (4.5, -4);
-    \filldraw[fill=orange, draw=black] (0, -4.1) rectangle (4, -4.5);
-    \filldraw[fill=purple, draw=black] (4.1, -4.1) rectangle (4.5, -4.5);
+    \filldraw[fill=accentColor!70, draw=gray] (4.1, 0) rectangle (4.5, -4);
+    \filldraw[fill=accentColor!70, draw=gray] (0, -4.1) rectangle (4, -4.5);
+    \filldraw[fill=accentColor!50!gray, draw=gray] (4.1, -4.1) rectangle (4.5, -4.5);
     \draw [decorate, decoration = {calligraphic brace, amplitude=.3cm}] (4.6, 0) --  (4.6,-4);
     \draw (4.9, -2) node[anchor=west] {$x$};
     \draw [decorate, decoration = {calligraphic brace, amplitude=.1cm}] (4.6, -4.1) --  (4.6,-4.5);
-    \draw (4.7, -4.3) node[anchor=west] {$\text{d}x$};
+    \draw (4.7, -4.3) node[anchor=west] {$\diff{x}$};
     \draw [decorate, decoration = {calligraphic brace, amplitude=.3cm}] (4, -4.6) -- (0, -4.6);
     \draw (2, -4.9) node[anchor=north] {$x$};
     \draw [decorate, decoration = {calligraphic brace, amplitude=.1cm}] (4.5, -4.6) -- (4.1, -4.6);
-    \draw (4.3, -4.7) node[anchor=north] {$\text{d}x$};
+    \draw (4.3, -4.7) node[anchor=north] {$\diff{x}$};
 \end{tikzpicture}

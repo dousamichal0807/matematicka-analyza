@@ -1,0 +1,66 @@
+\begin{tikzpicture}
+    %Barvy
+    \colorlet{tangentLine}{accentColor}
+    \colorlet{point}{accentColor!60!black}
+
+    % Svislá mřížka
+    \foreach \x in {-2,...,2} {
+        \ifnum \x = 0 {} \else {
+            \draw[draw opacity=.5, dotted] (\x, -2.5) -- (\x, 2.5);
+            \draw[fill opacity=.5] (\x, 0) node[anchor=north, inner sep=.1cm] {$\x$};
+        } \fi
+    }
+    % Vodorovná mřížka
+    \foreach \y in {-2,...,2} {
+        \ifnum \y = 0 {} \else {
+            \draw[draw opacity=.5, dotted] (-2.5, \y) -- (2.5, \y);
+            \draw[fill opacity=.5] (0, \y) node[anchor=east, inner sep=.1cm] {$\y$};
+        } \fi
+    }
+    % Osa x a y
+    \draw[->] (-2.5, 0) -- (2.5, 0);
+    \draw[->] (0, -2.5) -- (0, 2.5);
+
+    % Graf
+    \draw (-2.3, -2) node[anchor=west, inner sep=.1cm] {$f(x)$};
+    \foreach \xa in {-2.355, -2.305,...,2.195} {
+        % \def \xb {\xa + 0.05} <-- Nefunguje!!
+        \ADD{\xa}{0.05}{\xb}
+        \def \ya {\xa^3 / 2 - \xa * 3 / 2 + 1 / 2}
+        \def \yb {\xb^3 / 2 - \xb * 3 / 2 + 1 / 2}
+        \draw[thick, line cap=round] (\xa,\ya) -- (\xb,\yb);
+    }
+
+    % Tečny a body dotyku
+
+    \draw[thick, color=tangentLine] (-1.6667, 1) -- (-2.25, -1.625);
+    \draw[color=tangentLine] (-2.25, -1.625) node[anchor=south east, inner sep=.07cm] {$t_1$};
+    \fill[color=point] (-2, -0.5) circle (0.05);
+    \draw[color=point] (-2, -0.5) node[anchor=north west, inner sep=.07cm] {$T_1$};
+
+    \draw[thick, color=tangentLine] (-2, 0.125) -- (-1, 2);
+    \draw[color=tangentLine] (-1, 2) node[anchor=south east, inner sep=.07cm] {$t_2$};
+    \fill[color=point] (-1.5, 1.0625) circle (0.05);
+    \draw[color=point] (-1.5, 1.0625) node[anchor=north west, inner sep=.07cm] {$T_2$};
+
+    \draw[thick, color=tangentLine] (-2.25, 1.5) -- (0.25, 1.5);
+    \draw[color=tangentLine] (0.25, 1.5) node[anchor=south, inner sep=.1cm] {$t_3$};
+    \fill[color=point] (-1, 1.5) circle (0.05);
+    \draw[color=point] (-1, 1.5) node[anchor=south west, inner sep=.07cm] {$T_3$};
+
+    \fill[color=point] (0, 0.5) circle (0.05);
+    \draw[color=point] (0, 0.5) node[anchor=west, inner sep=.1cm] {$T_4$};
+
+    \draw[thick, color=tangentLine] (-0.25, -0.5) -- (1.75, -0.5);
+    \draw[color=tangentLine] (-0.25, -0.5) node[anchor=south, inner sep=.1cm] {$t_5$};
+    \fill[color=point] (1, -0.5) circle (0.05);
+    \draw[color=point] (1, -0.5) node[anchor=north east, inner sep=.07cm] {$T_5$};
+
+    \draw[thick, color=tangentLine] (2, 0.875) -- (1, -1);
+    \draw[color=tangentLine] (1, -1) node[anchor=north, inner sep=.1cm] {$t_6$};
+    \fill[color=point] (1.5, -0.0625) circle (0.05);
+    \draw[color=point] (1.5, -0.0625) node[anchor=south east, inner sep=.07cm] {$T_6$};
+
+    \fill[color=point] (2, 1.5) circle (0.05);
+    \draw[color=point] (2, 1.5) node[anchor=west, inner sep=.1cm] {$T_7$};
+\end{tikzpicture}

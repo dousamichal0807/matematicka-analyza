@@ -1,0 +1,74 @@
+\colorlet{accentColor}{violet!75!white}
+\makechapter{Taylorův rozvoj}{taylor}{
+
+}{f(x) = \sum_{k = 0}^{\infty} \frac{(x-a)^k}{k!} \cdot \fracdiff{^k f}{x^k}(x-a)}{}
+
+\vfill{}
+\pagebreak
+\section{K~čemu se Taylorův rozvoj hodí?}
+\label{sec:taylor-uvod}
+
+Všechny funkce nejsou polynomiální -- alespoň ne~na první pohled. \emph{Tayloroův
+polynom} resp. \emph{Taylorův rozvoj} je vyjádření jakékoliv funkce pomocí konečného
+či nekonečného polynomu. Je-li polynom nekonečný, budeme mu říkat \emph{rozvoj}.
+Vyjádření složitých funkcí, jako například exponenciálních či trigonometrických,
+pomocí polynomu či rozvoje umožňuje derivovat i~takové funkce.
+
+I~přestože, že před námi bude stát rozvoj, většinou nám vadit nebude. Pomůžeme si
+například tím, že rozvoj vyjádříme pomocí operátoru sumace. Většinou v~rozvojích
+najdeme určité pravidlo pro~koeficienty jednotlivých členů, tj. dokážeme vyjádřit
+koeficient~$c_n$ u~členu~${c_n \cdot x^n}$ pomocí určitého vzorce využívající
+proměnnou~$n$. Proto zápis pomocí operátoru sumace nebude příliš těžký.
+
+\section{Trigonometrické funkce}
+\label{sec:taylor-trigonometrie}
+
+\begin{equation*}
+    \sin(x)
+    = \sum_{k=0}^{\infty} \frac{(-1)^k \cdot x^{2k + 1}}{(2k + 1)!}
+    = \frac{x^1}{1!} - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots
+    = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \cdots
+\end{equation*}
+
+Než však začneme derivovat tento polynom, zkusme uvažovat intuitivně, jak by mohla, alespoň přibližně, derivace vypadat.
+
+V~hodnotě $x = 0$ nám graf $\sin x$ vcelku strmě stoupá, proto bude hodnota derivace funkce pro $x = 0$ jisté kladné číslo. Graf však postupně nestoupá tak strmě, až se stoupání zastaví na~hodnotě $x = \frac12 \pi$. Proto tam derivace funkce bude mít hodnotu~0. Pak graf funkce $\sin(x)$ začne klesat. Nejvíce klesá v~hodnotě $x = \pi$. Zároveň klesá stejně strmě, jako stoupá na~začátku. Proto hodnota derivace funkce pro $x = \pi$ bude mít opačnou hodnotu než hodnota pro $x = 0$. Poté padáme do~záporných hodnot, kde se konečně klesání zastaví v~hodnotě $x = \frac34 \pi$. Tady se nám graf derivace funkce vrací do~hodnoty 0. Abychom ukončili cyklus, pokračujeme, a~graf opět roste. Nakonec se dostáváme na~samotný začátek, kdy graf původní funkce opět roste vcelku strmě, proto zde bude hodnota derviace funkce opět stejná, jako v~bodě $x = 0$.
+
+Napadá vás o~jakou funkci by se mohlo jednat? Pokud ne, tady je řešení:
+\begin{equation*}
+    \fracdiff{[\sin(x)]}{x} = \cos(x)
+\end{equation*}
+
+Zkusme to přes výše zmíněný Taylorův polynom (rozvoj) pro sinus:
+\begin{align*}
+    \fracdiff{[\sin(x)]}{x}
+    &= \fracdiff{}{x} \left(x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \cdots \right) = \\
+    &= \fracdiff{}{x} (x)
+    + \fracdiff{}{x} \left(-\frac{x^3}{6}\right)
+    + \fracdiff{}{x} \left(\frac{x^5}{120}\right)
+    + \fracdiff{}{x} \left(-\frac{x^7}{5070}\right)
+    + \cdots \\
+    &= 1 - \frac{3x^2}{6} + \frac{5x^4}{120} - \frac{7x^6}{5070} + \cdots \\
+    &= 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \cdots \\
+    &= \cos(x)
+\end{align*}
+
+Někdo může namítat, že jsme si $\cos(x)$ vymysleli, a~že~první čtyři členy Taylorova
+rozvoje pro $\cos(x)$ jsou shodné s~naším výsledkem, je jen náhoda. Proto pro pokročilejší nabízím verzi s~využitím sumace:
+\begin{align*}
+    \fracdiff{[\sin(x)]}{x}
+    &= \fracdiff{}{x} \left( \sum_{k=0}^{\infty} \frac{(-1)^k \cdot x^{2k + 1}}{(2k + 1)!} \right)
+    = \sum_{k=0}^{\infty} \fracdiff{}{x} \left( \frac{(-1)^k \cdot x^{2k + 1}}{(2k + 1)!} \right) \\
+    &= \sum_{k=0}^{\infty} \frac{(-1)^k \cdot (2k+1) \cdot  x^{2k}}{(2k+1)!}
+    = \sum_{k=0}^{\infty} \frac{(-1)^k \cdot  x^{2k}}{(2k)!}
+    = \cos(x)
+\end{align*}
+
+\section{Exponenciální funkce}
+
+Jistě všichni slyšeli o~Eulerovu číslu. Pokusme se zderivovat funkci $\exp(x)$, častěji známou jako $e^x$. Opět použijeme Taylorův rozvoj:
+\begin{equation*}
+    \exp(x) = \sum_{k=0}^{\infty} \frac{x^k}{k!}
+    = \frac{x^0}{0!} + \frac{x^1}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots
+    = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \cdots
+\end{equation*}

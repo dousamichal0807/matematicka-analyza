@@ -1,0 +1,24 @@
+\newcommand{\makechapter}[5]{
+    \clearpage
+    \ifodd\c@page
+        .\newpage
+    \fi
+    \thispagestyle{empty}
+    \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center)
+        {#5};
+    \pagecolor{accentColor!50}
+    \chapter{#1}
+    \label{ch:#2}
+    \thispagestyle{empty}
+    #3
+    \vfill
+    {\Huge \color{accentColor!50!gray}
+        \begin{equation*}
+        {} #4
+        \end{equation*}
+    }
+    \newpage
+    \nopagecolor
+}
+
+\pretocmd{\section}{\clearpage}{}{}

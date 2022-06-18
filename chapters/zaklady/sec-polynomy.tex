@@ -1,0 +1,44 @@
+\clearpage
+
+\section{Polynomy}
+\label{sec:zaklady-polynomy}
+
+\begin{definition}[Definice polynomu]
+    \label{def:polynom}
+    Polynom (mnohočlen) je výraz, který lze zapsat jako:
+    \begin{equation}
+        P(x) = \sum_{k = 0}^{n} c_k x^k = c_0 x^0 + c_1 x^1 + c_2 x^2 +
+        \cdots + c_{n-1} x^{n-1} + c_n x^n.
+        \label{eq:polynom-obecne}
+    \end{equation}
+    Čísla ${c_0}$~až~${c_n}$ jsou tzv. \emph{koeficienty polynomu}.
+\end{definition}
+
+\subsection{Stupeň polynomu}
+\label{subsec:zaklady-polynom-stupen}
+
+\begin{definition}[Stupeň polynomu]
+    \label{def:polynom-stupen}
+    Nechť existuje polynom~$P$ zapsaný ve~tvaru určeném v~definici~\ref{def:polynom}.
+    Poté stupeň polynomu~$P$, který budeme označovat jako ${\deg P}$, bude číslo~$n$
+    přítomné v~zápisu polynomu, pokud~${c_n \neq 0}$. Pokud všechny koeficienty
+    polynomu~$P$ jsou nulové, stupeň polynomu je roven~$-1$.\footnote{Někdy se v~tomto případě
+    určuje, že ${\deg P = -\infty}$.}
+\end{definition}
+
+\begin{lemma}
+    Pro každý polynom je definován stupeň polynomu.
+
+    \begin{proof}
+        Nechť polynom~$P$ je vyjádřen pomocí sumy v~definici~\ref{def:polynom}.
+        Jsou-li všechny koeficienty $c_0$~až~$c_n$ rovny nule, podle definice platí,
+        že ${\deg P = -1}$. Je-li ${c_n \neq 0}$, opět podle definice platí, že
+        ${\deg P = n}$.
+
+        Existuje-li alespoň jeden nenulový koeficient, ale není to koeficient~$c_n$,
+        určíme~$m \in \naturals_0$ tak, aby ${c_m \neq 0}$ a~$m$ bylo nejvyšší
+        možné s~takovou vlastností. Poté jsme schopni polynom~$P$ přepsat pomocí
+        sumace, kde $n$ nahradíme za~$m$. Protože rovnost je zachována
+        a~${c_m \neq 0}$, musí platit, že ${m = \deg P}$.
+    \end{proof}
+\end{lemma}
