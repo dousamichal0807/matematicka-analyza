@@ -1,0 +1,138 @@
+\section{Spojitost funkce}
+\label{sec:limita-spojitost-fce}
+
+Ještě před začátkem matematické analýzy je nutno vyslovit několik několik lemmat
+týkajících se spojitosti funkcí.
+Ze~střední školy, možná i~ze~základní, si pamatujete, kdy jste se učili o~intervalech.
+Ty nyní budou zásadní -- na~nich postavíme definice a~lemmata o~spojitosti funkcí.
+Začneme definicí \emph{okolí} a~\emph{prstencového okolí} bodu a~vyslovíme
+\emph{${(\varepsilon, \delta)}$-definici} spojitosti funkce.
+
+\subsection{Okolí bodu}
+\label{subsec:limita-spojitost-okoli}
+
+Definice různých druhů okolí bodu nejsou příliš těžké -- tato sekce tedy bude
+obsahovat několik definic, ty však budou jednoduché, proto úlohy budou o~něco
+pracnější -- bez kalkulačky je spočtete velmi těžko\footnote{Pokud vám připadá, že je
+to nemožné, zamyslete se -- matematici před dvěma stoletími neměli kalkulačky --
+i~tak dokázali spočítat chytrými technikami například $\pi$ na~mnoho desetinných
+míst.}\ldots
+
+\begin{definition}[Okolí bodu]
+    $\varepsilon$-okolí bodu~$a$, kde~${a \in \reals}$
+    a~${\varepsilon \in \positive{\reals}}$, je značeno~${\ptngb(a; \varepsilon)}$
+    a~jedná se o~množinu všech reálných čísel, jejichž vzdálenost od~čísla~$a$ je
+    menší než~$\varepsilon$:
+    \begin{equation*}
+        \ptngb(a; \varepsilon) = (a - \varepsilon;\; a + \varepsilon).
+    \end{equation*}
+\end{definition}
+
+\begin{exercise}[Okolí bodu]
+    Zapište pomocí intervalu a~hraniční body spočítejte s~přesností 5~desetinných
+    míst (${e \doteq 2,7182818284\dots}$ je Eulerovo číslo):
+    \begin{multicols}{2}
+        \begin{enumerate}[label=(\alph*)]
+            \item $1,5$-okolí bodu~4
+            \item $\pi$-okolí bodu~$e$
+            \item $\frac{1}{10}$-okolí bodu~$\sqrt{2}$
+            \item $\frac{1}{3\pi}$-okolí bodu~$\frac{20}{\pi}$
+            \item ${(2\pi - 4)}$-okolí bodu~${10\pi - 2}$
+            \item $0,001$-okolí bodu~$37,157$
+        \end{enumerate}
+    \end{multicols}
+\end{exercise}
+
+\begin{definition}[Levostranné okolí bodu]
+    Levostranné $\epsilon$-okolí bodu~$a$kde~${a \in \reals}$
+    a~${\varepsilon \in \positive{\reals}}$, je značeno~${\negative\ptngb(a; \epsilon)}$
+    a~je jím množina reálních čísel, která jsou menší než~$a$ a~zároveň jsou
+    od~bodu~$a$ vzdálena méně než~$\epsilon$:
+    \begin{equation*}
+        \positive\ptngb(a; \epsilon) = (a - \epsilon;\; a \rangle.
+    \end{equation*}
+\end{definition}
+
+\begin{exercise}[Levostranné okolí bodu]
+    Zapište pomocí intervalu a~hraniční body spočítejte s~přesností 5~desetinných
+    míst (${e \doteq 2,7182818284\dots}$ je Eulerovo číslo):
+    \begin{enumerate}[label=(\alph*)]
+        \item levostranné $0,5$-okolí bodu~$e$
+        \item levostranné $\frac{22}{7}$-okolí bodu~$\pi$
+        \item levostranné $\frac{1}{10\sqrt{3}}$-okolí bodu~$\sqrt{3}$
+        \item levostranné $\frac{1}{5e}$-okolí bodu~$\frac{15}{\pi}$
+        \item levostranné $\frac{e}{\pi}$-okolí bodu~$e^\pi$
+        \item levostranné $0,002$-okolí bodu~$-1,512$
+    \end{enumerate}
+\end{exercise}
+
+\begin{definition}[Pravostranné okolí bodu]
+    Pravostranné $\epsilon$-okolí bodu~$a$, značené~${\positive\ptngb(a; \epsilon)}$
+    je množina
+    \begin{equation*}
+        \negative\ptngb(a; \epsilon) = \langle a;\; a + \epsilon),
+    \end{equation*}
+    přičemž musí platit, že ${\epsilon \in \reals^{+}}$ a~${a \in \reals}$.
+\end{definition}
+
+To byly definice \emph{okolí bodu}, \emph{pravostranného okolí bodu}
+a~\emph{levostranného okolí bodu}.
+Rovněž vyslovíme definice i~pro jejich "prstencové varianty".
+Prstencové varianty se liší tím, že jejich prvkem není samotný bod, kolem něhož okolí
+určujeme, v~našich definicích okolí to byla proměnná~$a$.
+Proto lze prstencové okolí napsat jako množinový rozdíl ("neprstencového") okolí bodu
+a~jednoprvkové množiny obsahující samotný bod, kolem něhož okolí vzniká.
+
+\begin{definition}[Prstencové okolí]
+    Prstencové $\epsilon$-okolí bodu~$a$, které je označováno jako
+    ${\ringptngb(a; \epsilon)}$, je množina
+    \begin{equation*}
+        \ringptngb(a; \epsilon) = \ptngb(a; \epsilon) \smallsetminus \{ a \}
+    \end{equation*}
+    přičemž musí platit, že ${\epsilon \in \reals^{+}}$ a~${a \in \reals}$.
+\end{definition}
+
+\begin{definition}[Levostranné prstencové okolí]
+    Levostranné prstencové $\epsilon$-okolí bodu~$a$, které je označováno jako 
+    ${\negative\ringptngb(a; \epsilon)}$, je množina
+    \begin{equation*}
+        \negative\ringptngb(a; \epsilon) = \negative\ptngb(a; \epsilon) \smallsetminus \{ a \}
+    \end{equation*}
+    přičemž musí platit, že ${\epsilon \in \reals^{+}}$ a~${a \in \reals}$.
+\end{definition}
+
+\begin{definition}[Pravostranné prstencové okolí]
+    Pravostranné prstencové $\epsilon$-okolí bodu~$a$, které je označováno jako 
+    ${\positive\ringptngb(a; \epsilon)}$, je množina
+    \begin{equation*}
+        \positive\ringptngb(a; \epsilon) = \positive\ptngb(a; \epsilon) \smallsetminus \{ a \}
+    \end{equation*}
+    přičemž musí platit, že ${\epsilon \in \reals^{+}}$ a~${a \in \reals}$.
+\end{definition}
+
+\begin{exercise}[Vztahy mezi okolím a~prstencovým okolím]
+    Dokažte, nebo alespoň si uvědomte, proč platí, že:
+    \begin{enumerate}[label=(\alph*)]
+        \item $\ptngb(a; \epsilon) = \negative\ptngb(a; \epsilon) \cup \positive\ptngb(a; \epsilon)$
+        \item $\ringptngb(a; \epsilon) = \negative\ringptngb(a; \epsilon) \cup \positive\ringptngb(a; \epsilon)$
+        \item $\positive\ringptngb(a; \epsilon) = (a;\; a + \epsilon)$
+        \item $\negative\ringptngb(a; \epsilon) = (a - \epsilon;\; a)$
+    \end{enumerate}
+\end{exercise}
+
+\subsection{Spojitost funkce v~bodě}
+\label{subsec:limita-spojitost-v-bode}
+
+Protože již máme definována okolí a~prstencová okolí bodu, jsme již schopni něco říci
+o~spojitosti funkce v~bodě. Začneme definicí, kterou následně rozebereme.
+
+\begin{definition}[Spojitost funkce v~bodě]
+    \label{def:funkce-spojitost-v-bode}
+    Funkce~$f$ je spojitá v~bodě~$x_0$, pokud pro jakékoliv (sebemenší)
+    ${\epsilon \in \positive\reals}$ a~příslušné okolí ${Y = \ptngb(f(x_0); \epsilon)}$
+    platí, že pokud~${Y \subset \fndom(f)}$, existuje ${\delta \in \positive\reals}$
+    a~k~němu okolí~${X = \ptngb(x_0; \delta)}$ takové, že
+    \begin{equation*}
+        \forall x \in X : f(x) \in Y
+    \end{equation*}
+\end{definition}

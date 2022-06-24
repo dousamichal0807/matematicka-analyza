@@ -1,8 +1,10 @@
-\colorlet{accentColor}{gray}
-\appendix
-\makechapter{Řešení úloh}{reseni}{Text}{todo}{}
+\begin{chapterintro}{Řešení úloh}{ap:reseni}{gray}{}
+    V~tété příloze najdete řešení všech úloh v~této publikaci. Než však řešení úlohy,
+    kterou právě řešíte, najdete, zkuste se ještě zamyslet, jestli jste na~něco
+    nezapomněli\ldots
+\end{chapterintro}
 
-\paragraph{Úloha 3.1.1.}
+\paragraph{Úloha 3.1.1}
 Tečna musí být rovnoběžná s~osou~$y$, abychom nehohli najít její směrnici. Mezi
 takové funkce patří např.\ všechny odmocniny s~lichým stupněm počínaje od~tří (tj.
 $\sqrt[2n+1]{x}$, kde ${n \in \naturals}$). Grafy lichých odmocnin mají v~bodě
@@ -11,12 +13,12 @@ ${[0; 0]}$ tečnu rovnoběžnou s~osou~$y$.
 \paragraph{Úloha 3.1.2.}
 Jedná se například o~některé mocninné funkce, tím jsou na~mysli funkce, které lze
 zapsat ve~tvaru ${f(x) = k (x-r)^n + s}$, kde ${k \in \reals \smallsetminus \{0\}}$,
-${r \in \reals}$, ${s \in \reals}$ a~${n \in \naturals \smallsetminus \{1\}}$. Ty
-mají v~bodě ${[r; s]}$ tečnu, jejíž směrnice je nulová, a~proto i~derivace v~hodnotě
-${x = r}$ bude nulová. Ať zvolíme sebemenší ${\epsilon \in \reals^{+}}$, nebudeme
-moci pro~interval (okolí) ${\mathcal{I} = \mathcal{U}(r; \epsilon) = (r-\epsilon; r+\epsilon)}$
-prohlásit, že funkce je na~intervalu (okolí) $\mathcal{I}$ konstantní (samozřejmě
-jen tehdy, pokud vůbec ${\mathcal{I} \subset \fndom(f)}$).
+${r \in \reals}$, ${s \in \reals}$ a~${n \in \naturals \smallsetminus \{1\}}$.
+Ty mají v~bodě ${[r; s]}$ tečnu, jejíž směrnice je nulová, a~proto i~derivace v~hodnotě
+${x = r}$ bude nulová.
+Ať zvolíme sebemenší ${\epsilon \in \positive\reals}$, nebudeme moci prohlásit, že
+funkce je v~okolí ${\ptngb(r; \epsilon)}$ konstantní (samozřejmě jen tehdy, pokud
+vůbec ${\ptngb(r; \epsilon) \subset \fndom(f)}$).
 
 \paragraph{Úloha 3.1.3.}
 Derivací funkce~$s(t)$ bude funkce~$v(t)$, což bude okamžitá rychlost v~daném

@@ -1,24 +1,32 @@
-\newcommand{\makechapter}[5]{
+\newenvironment{chapterintro}[4]{
+% PŘED TEXTEM:
+    % Dostaň se na levou stranu
     \clearpage
     \ifodd\c@page
-        .\newpage
+        \hfill
+        \clearpage
     \fi
+    % Levá (sudá) strana
     \thispagestyle{empty}
-    \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center)
-        {#5};
-    \pagecolor{accentColor!50}
+    \xglobal\colorlet{accentColor}{#3}
+    \pagecolor{accentColor}
+    \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center) {#4};
+    % Pravá (lichá) strana
     \chapter{#1}
-    \label{ch:#2}
+    \label{#2}
     \thispagestyle{empty}
-    #3
-    \vfill
-    {\Huge \color{accentColor!50!gray}
-        \begin{equation*}
-        {} #4
-        \end{equation*}
-    }
-    \newpage
+    \pagecolor{accentColor!50!white}
+}{
+% ZA TEXTEM
+    % Jdi na následující stranu a vymaž barvu stránky
+    \clearpage
     \nopagecolor
 }
+
+\titleformat{\chapter}[display]
+    {\LARGE\sffamily\lsstyle}
+    {\chaptertitlename\ \thechapter}
+    {0pt}
+    {\fontsize{40pt}{40pt}\scshape\lsstyle\raggedright}
 
 \pretocmd{\section}{\clearpage}{}{}

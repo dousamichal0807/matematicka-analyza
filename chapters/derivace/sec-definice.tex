@@ -10,36 +10,22 @@ a~následně ji zformalizujeme v~sekci~\ref{subsec:derivace-definice-formal}.
 \subsection{Derivace pomocí tečen}
 \label{subsec:derivace-pomoci-tecen}
 
-Určit, jak funkce roste či klesá, je dost obtížné. Máme ale přímku. Je-li přímka
-grafem jisté funkce ${g(x) = kx + q}$, za~míru růstu resp.~poklesu funkčních hodnot
-můžeme označit koeficient~$k$, tj. směrnici přímky, která je grafem funkce~$g$.
+Určit, jak funkce roste či klesá, je dost obtížné.
+Máme ale přímku.
+Je-li přímka grafem jisté funkce ${g(x) = kx + q}$, za~míru růstu resp.~poklesu
+funkční hodnoty můžeme označit koeficient~$k$, tj. směrnici přímky, která je grafem
+funkce~$g$.
 Grafem funkce je ale většinou křivka, například parabola, sinusoida, hyperbola či
-kuboida.
+kuboida\footnote{\emph{Kuboida} je křivka, která je grafem kubické funkce.
+\emph{Kubická funkce} je funkce, jejíž funkční předpis je polynom třetího stupně.}.
 
-To ale ničemu nevadí -- ke~křivce jsme schopni zkonstruovat tečnu prakticky kdekoliv
-se nám zachce -- a~tečna je již přímka. Můžeme tedy prohlásit, že funkce~$f$ v~určité
-hodnotě $x$ roste či klesá stejnou mírou, jako tečna v~tom stejném bodě. Přesněji:
-pro každou hodnotu ${x \in \fndom(f)}$ se bude hodnota derivace v~dané hodnotě $x$
-rovnat směrnici tečny $t$ ke~grafu funkce~$f$ s~bodem dotyku $T[x, f(x)]$. To
-samozřejmě jen tehdy, pokud tečna~$t$ existuje a~jsme schopni určit její směrnici.
+To ale ničemu nevadí -- ke~grafu funkce určíme tečnu -- a~tečna je již přímka.
+Můžeme tedy prohlásit, že funkce~$f$ v~určité hodnotě $x$ roste či klesá stejnou
+mírou, jako tečna v~tom stejném bodě.
 
-Také si všimněte, že hodnotám ${x \in \fndom(f)}$ určíme maximálně jedno reálné
-číslo, které určuje strmost grafu funkce~$f$. Výstupem derivace je proto nějaká jiná
-funkce, kterou označíme jako $f'$, jejíž funkční hodnota reprezentuje právě strmost
-grafu původní funkce~$f$.
-
-To je demonstrováno na~obrázku~\ref{fig:derivace-tecny}, kde zvolíme body $T_1[x_1, y_1]$ až
-$T_7[x_7, y_7]$ ležící na~grafu funkce ${f(x) = \frac{1}{2} x^3 - \frac{3}{2} x +
-\frac{1}{2}}$. Zvolené body jsou body dotyku tečen $t_1$ až $t_7$ se~směrnicemi $k_1$
-až $k_7$. Proto na~grafu funkce~$f'$, která je derivací funkce~$f$, budou ležet body
-$A_1[x_1, k_1]$ až $A_7[x_7, k_7]$.
-
-\begin{figure}[ht!]
-    \centering
-    \input{chapters/derivace/fig-tecny.tex}
-    \caption{Ukázka, jak by derivace měla fungovat}
-    \label{fig:derivace-tecny}
-\end{figure}
+Přesněji: pro každou hodnotu ${x \in \fndom(f)}$ se bude hodnota derivace v~daném
+bodě~$x$ rovnat směrnici tečny $t$ ke~grafu funkce~$f$ s~bodem dotyku $T[x, f(x)]$.
+To samozřejmě jen tehdy, pokud tečna~$t$ existuje a~jsme schopni určit její směrnici.
 
 \begin{exercise}[Tečna bez směrnice]
     Kdy můžeme mít tečnu, jejíž směrnici nebudeme schopni určit? Jak musí být taková
@@ -49,13 +35,41 @@ $A_1[x_1, k_1]$ až $A_7[x_7, k_7]$.
     na~grafu.
 \end{exercise}
 
-\begin{lemma}
-    Derivaci~$f'(x)$ můžeme být schopni určit pouze na~spojitých úsecích, vyjma
-    krajních hodnot a~hodnot, kde se graf zalomí.
+Také si všimněte, že hodnotám ${x \in \fndom(f)}$ určíme maximálně jedno reálné
+číslo, které určuje strmost grafu funkce~$f$.
+Proto prohlásíme, že výstupem derivace bude nějaká jiná funkce, kterou označíme
+jako~$f'$, jejíž funkční hodnota reprezentuje právě strmost grafu původní funkce~$f$.
+
+\begin{figure}[ht!]
+    \centering
+    \input{chapters/derivace/fig-tecny.tex}
+    \caption{Ukázka, jak by derivace měla fungovat}
+    \label{fig:derivace-tecny}
+\end{figure}
+
+Jak by náš koncept měl fungovat, je demonstrováno na~obrázku~\ref{fig:derivace-tecny},
+kde zvolíme body $T_1[x_1, y_1]$ až $T_7[x_7, y_7]$ ležící na~grafu funkce
+${f(x) = \frac{1}{2} x^3 - \frac{3}{2} x + \frac{1}{2}}$.
+Zvolené body jsou body dotyku tečen $t_1$ až $t_7$ se~směrnicemi $k_1$ až $k_7$.
+Proto na~grafu funkce~$f'$, která je derivací funkce~$f$, budou ležet body
+$A_1[x_1, k_1]$ až $A_7[x_7, k_7]$.
+
+Protože jsme již získali jistou intuici, budeme pokračovat v~budování teorie tím, že
+vyslovíme několik lemmat, které se derivace týkají.
+
+\begin{lemma}[Spojitost grafu]
+    Derivaci~$f'(x)$ můžeme být schopni určit pouze na~spojitých úsecích grafu, vyjma
+    krajních hodnot spojitého úseku a~hodnot, kde se graf zalomí.
 
     \begin{proof}
-        Na~krajních bodech spojitého úseku nejsme schopni zkonstruovat tečnu stejně
-        jako v~bodech, kde se jakákoliv křivka zalomí.
+        Na~krajních bodech spojitého úseku nejsme schopni určit tečnu, protože nevíme,
+        jestli krajní bod našeho úseku není bodem, kde se náš graf zalomí.
+        V~místě, kde se graf zalomí, nejsme schopni určit derivaci funkce, protože
+        hodnota derivace se z~levé strany blíží k~hodnotě, která je rozdílná
+        od~hodnoty, ke~které se blíží derivace z~pravé strany.
+        Jako příklad můžeme uvést funkci~${f(x) = |x|}$ v~bodě~${x = 0}$, kde je
+        derivace zleva rovna~$-1$ a~zprava~$+1$.
+        Proto nejsme v~takovém bodě schopni určit tečnu.
     \end{proof}
 \end{lemma}
 
@@ -227,7 +241,7 @@ k~derivaci blížíme. K~tomu využijeme limitu:
 
 \begin{definition}
     Mějme funkci~$f$ definovanou v~určitém okolí ${\mathcal{U}(x; \epsilon)}$, kde
-    ${\epsilon \in \reals^{+}}$. Existuje-li limita
+    ${\epsilon \in \positive\reals}$. Existuje-li limita
     \begin{equation*}
         L = \lim_{a \to x} \frac{f(x) - f(a)}{x - a}
     \end{equation*}

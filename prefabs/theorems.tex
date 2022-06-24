@@ -4,36 +4,38 @@
     {3pt}% Space below
     {}% Body font
     {}% Indent amount
-    {\bfseries}% Theorem head font
+    {}% Theorem head font
     {}% Punctuation after theorem head
     {\newline}% Space after theorem head
-    {\thmname{\color{accentColor!50!black}#1}
-        \thmnumber{#2}
-        \thmnote{\color{accentColor} $\boldsymbol{\cdot}$ \normalcolor #3}
+    {\textsf{\color{accentColor!50!black}\textbf{\thmname{#1} \thmnumber{#2}}
+        \thmnote{\color{accentColor} $\boldsymbol{\cdot}$ \normalcolor \textit{#3}}}
     }% Theorem head spec
+
+\theoremstyle{global}
+\newmdtheoremenv[
+    innerbottommargin = \topskip,
+    innerleftmargin = \topskip,
+    innerrightmargin = \topskip,
+    innertopmargin = \topskip,
+    linecolor = accentColor,
+    linewidth = .5pt,
+    nobreak = true
+]{definition}{Definice}[section]
 
 \theoremstyle{global}
 \newmdtheoremenv[
     backgroundcolor = black!3!white!90!accentColor,
     bottomline = false,
-    innerbottommargin=10pt,
-    innerleftmargin=10pt,
-    innerrightmargin=10pt,
-    innertopmargin=10pt,
+    innerbottommargin = \topskip,
+    innerleftmargin = \topskip,
+    innerrightmargin = \topskip,
+    innertopmargin = \topskip,
     linecolor = accentColor,
     linewidth = 2pt,
     rightline = false,
     topline = false,
+    nobreak = true,
 ]{exercise}{Úloha}[section]
-
-\theoremstyle{global}
-\newmdtheoremenv[
-    innerbottommargin=10pt,
-    innerleftmargin=10pt,
-    innerrightmargin=10pt,
-    innertopmargin=10pt,
-    linecolor = accentColor,
-]{definition}{Definice}[section]
 
 \theoremstyle{global}
 \newmdtheoremenv[

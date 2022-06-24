@@ -1,12 +1,25 @@
 \documentclass[b5paper]{book}
 
-% Kódování vstupních *.tex souborů
-\usepackage[utf8]{inputenc}
-
 % Balíčky pro kreslení
 \usepackage{color}
-\usepackage[svgnames]{xcolor}
+\usepackage[svgnames,table]{xcolor}
+\usepackage{graphicx}
 \usepackage{tikz}
+
+% Jazyk
+\usepackage{polyglossia}
+
+% Písmo
+\usepackage{fontspec}
+\usepackage{titlesec}
+\usepackage{FiraSans}
+
+% Rozložení stránky, záhlaví, zápatí
+\usepackage{fancyhdr}
+\usepackage[left=2.5cm, right=2.5cm, top=3cm, bottom=2.5cm]{geometry}
+\usepackage[letterspace=100]{microtype}
+
+% Knihovny TikZ
 \usetikzlibrary{decorations.pathreplacing}
 \usetikzlibrary{calligraphy}
 
@@ -15,74 +28,45 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{dsfont}
-%\usepackage{esdiff}
-\usepackage{eucal}
 \usepackage{icomma}
 
-% Nastavení jazyka a písma
-\usepackage[czech]{babel}
-
-% Úlohy, definice, lemmata apod.
-% https://tex.stackexchange.com/questions/227305/conflict-between-mdframed-and-amsthm-packages-with-the-use-of-czech-babel
-% https://tex.stackexchange.com/questions/388960/place-a-footnote-in-an-environment-in-the-bottom-of-the-page
+% Úlohy, definice, lemmata, obrázky, tabulky
 \usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage[labelfont=bf]{caption}
 \usepackage[framemethod=default]{mdframed}
 
-\makeatletter
-\AtBeginDocument{%
-\@ifpackageloaded{amsthm}%
- {%
-  \renewrobustcmd\mdf@patchamsthm{%
-   \chardef\kludge@catcode@hyphen=\catcode`\-
-   \catcode`\-=12
-   \let\mdf@deferred@thm@head\deferred@thm@head
-   \pretocmd{\deferred@thm@head}{\@inlabelfalse}%
-      {\mdf@PackageInfo{mdframed detected package amsthm ^^J%
-                        changed the theorem header of amsthm\MessageBreak}%
-      }{%
-       \mdf@PackageError{mdframed detected package amsthm ^^J%
-                         changed the theorem header of amsthm
-                         failed\MessageBreak}%
-       }%
-   \catcode`\-=\kludge@catcode@hyphen
-     }%
- }{}%
-}
+% Bibliografie
+\usepackage{biblatex}
 
-\usepackage{booktabs}
+% Ostatní
 \usepackage{calculator}
+\usepackage{enumitem}
 \usepackage{etoolbox}
-\usepackage[labelfont=bf]{caption}
-\usepackage[left=2.5cm, right=2.5cm, top=3cm, bottom=2.5cm]{geometry}
-\usepackage{graphicx}
+\usepackage{luapackageloader}
+\usepackage{multicol}
 
-\emergencystretch 3em
-\setlength{\parindent}{1cm}
-\setlength{\parskip}{0.2cm}
-\renewcommand{\baselinestretch}{1.15}
-\hyphenchar\font=-1
-
-% Zkratky
+\input{prefabs/bugfixes.tex}
 \input{prefabs/chapters.tex}
+\input{prefabs/layoutdef.tex}
 \input{prefabs/mathsyms.tex}
 \input{prefabs/theorems.tex}
+
+\setdefaultlanguage{czech}
 
 \title{Matematická analýza}
 \author{Michal Douša}
 \date{}
 
+\addbibresource{bibliography.bib}
+
 \begin{document}
     \colorlet{accentColor}{gray}
-    \begin{titlepage}
-        \raggedleft
-        {\ }
-        \vfill
-        {\Large Michal Douša}
-        \\[1cm]
-        {\Huge \scshape Matematická\\analýza}
-        \vfill
-    \end{titlepage}
+
+    \input{frontmatter/title-page.tex}
+
     \tableofcontents
+
     \input{chapters/zaklady/index.tex}
     \input{chapters/limita/index.tex}
     \input{chapters/derivace/index.tex}
@@ -90,7 +74,10 @@
     \input{chapters/lhopital/index.tex}
     \input{chapters/vlastnosti-funkce/index.tex}
     \input{chapters/integral/index.tex}
-    \input{chapters/reseni/index.tex}
-    \listoffigures
+
+    \appendix
+
+    \input{appendixes/reseni/index.tex}
+    \input{appendixes/reference/index.tex}
     
 \end{document}

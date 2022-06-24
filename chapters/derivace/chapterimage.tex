@@ -1,2 +1,46 @@
 \begin{tikzpicture}
+    % Definice barev
+    \colorlet{backgroundColor}{accentColor}
+    \colorlet{axisColor}{accentColor!50!black}
+    \colorlet{graphColor}{black}
+    \colorlet{derivGraphColor}{white}
+
+    % Zvětšení
+    \def \scalex {2.5}
+    \def \scaley {2.5}
+
+    % Tloušťka čáry
+    \def \linethin {1pt}
+    \def \linethick {2pt}
+    
+    % Osa x
+    \draw[color=axisColor, line width=\linethin] (-9, 0) -- (9, 0);
+    \foreach \x in {-3,...,3} {
+        \ifnum \x = 0 {} \else
+            \MULTIPLY{\x}{\scalex}{\xs}
+            \draw[line width=\linethin, color=axisColor] (\xs, 0.2) -- (\xs, -0.2)
+            node[anchor=north, inner sep=2mm] {\Huge $\x$};
+        \fi
+    }
+
+    % Osa y
+    \draw[color=axisColor, line width=\linethin] (0, -9) -- (0, 17);
+    \foreach \y in {-3,...,6} {
+        \ifnum \y = 0 {} \else
+            \MULTIPLY{\y}{\scaley}{\ys}
+            \draw[line width=\linethin, color=axisColor] (0.2, \ys) -- (-0.2, \ys)
+            node[anchor=east, inner sep=2mm] {\Huge $\y$};
+        \fi
+    }
+
+    % Grafy
+    \directlua{
+        local luaimp = require("chapters/derivace/chapterimage");
+        luaimp.graph();
+    }
+
+    % Označení grafů
+    \draw (-5.5, -4) node[color=graphColor, anchor=north west, inner sep=2mm] {\Huge $f(x)$};
+    \draw (-5, 10) node[color=derivGraphColor, anchor=north east, inner sep=2mm] {\Huge $\displaystyle \fracdiff{f}{x}$};
 \end{tikzpicture}
+
