@@ -1,5 +1,4 @@
 local tikzplots = require("tikzplots")
-local print_line = require("luatexprint")
 
 local transformation = tikzplots.Transformation.new(1, 1, 0, 0)
 local funcPlotSettings = tikzplots.PlotSettings.new("thick, color=point, smooth", transformation, -2.355, 2.195, 0.05)
@@ -9,7 +8,6 @@ local function funcValue(x)
 end
 
 local function graph()
-    print_line("Test: type(funcValue) = " .. type(funcValue))
     funcPlotSettings:plot(funcValue)
 end
 

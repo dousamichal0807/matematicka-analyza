@@ -1,6 +1,5 @@
 local Point = require("tikzplots.point")
 local Transformation = require("tikzplots.transformation")
-local print_line = require("luatexprint")
 
 local PlotSettings = {}
 PlotSettings.meta = { __index = PlotSettings }
@@ -78,11 +77,10 @@ function PlotSettings:set_x_step(xstep)
 end
 
 function PlotSettings:plot(func)
-    print_line("Test: type(func) = " .. type(func))
     assert(func ~= nil, "cannot pass nil as parameter")
     assert(type(func) == "function", "function was expected")
 
-    local result = "\\draw[" .. self.__tikz_draw_args .. "] "
+    tex.sprint("\\draw[" .. self.__tikz_draw_args .. "] ")
     local x = self.__x_from
     local first = true
     
@@ -97,18 +95,14 @@ function PlotSettings:plot(func)
         if first then
             first = false
         else
-            result = result .. " -- "
+            tex.sprint(" -- ")
         end
 
-        result = result .. transformed:to_string()
+        tex.sprint(transformed:to_string())
         x = x + self.__x_step
     end
 
-    result = result .. ";"
-    print(result)
-    if tex then
-        tex.sprint(result)
-    end
+    tex.sprint(";")
 end
 
 return PlotSettings
