@@ -27,6 +27,17 @@
     {\LARGE\sffamily\lsstyle}
     {\chaptertitlename\ \thechapter}
     {0pt}
-    {\fontsize{40pt}{40pt}\scshape\lsstyle\raggedright}
+    {\fontsize{40pt}{40pt}\scshape\lsstyle\raggedright}[]
 
 \pretocmd{\section}{\clearpage}{}{}
+\titleformat{\section}[hang]
+    {\Large\bfseries\sffamily}
+    {\color{accentColor!40!black}\thesection\;\color{accentColor!70!black}\textbullet\;}
+    {0pt}
+    {}[]
+
+\titleformat{\subsection}[hang]
+    {\large\bfseries\scshape\sffamily}
+    {\color{accentColor!70!darkgray}\thesubsection}
+    {5mm}
+    {\color{darkgray}}[]

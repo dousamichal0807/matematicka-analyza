@@ -1,20 +1,25 @@
-\DeclareFontFamily{OT1}{pzc}{}
-\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.15] pzcmi7t}{}
-\DeclareMathAlphabet{\mathcal}{OT1}{pzc}{m}{it}
+% Alternativní osmicípá hvězdička
+\newcommand{\altstar}{{\mathrlap{+}\times}}
 
-\newcommand{\naturals}{\mathds{N}}
-\newcommand{\integers}{\mathds{Z}}
-\newcommand{\rationals}{\mathds{Q}}
-\newcommand{\irrationals}{\mathds{I}}
-\newcommand{\reals}{\mathds{R}}
+% Číselné obory
+\newcommand{\naturals}{\mathds{N}}      % Přirozená
+\newcommand{\integers}{\mathds{Z}}      % Celá
+\newcommand{\rationals}{\mathds{Q}}     % Racionální
+\newcommand{\irrationals}{\mathds{I}}   % Iracionální
+\newcommand{\reals}{\mathds{R}}         % Reálná
+\newcommand{\extreals}{\reals^\altstar} % Rozšířená reálná
 
-\newcommand{\fndom}{D}
-\newcommand{\fnran}{H}
-\newcommand{\ptngb}{U}
-\newcommand{\ringptngb}{P}
+% Další
+\newcommand{\fndom}{D}              % Definiční obor
+\newcommand{\fnran}{H}              % Obor hodnot
+\newcommand{\ptngb}{\mathbf{U}}     % Okolí bodu
+\newcommand{\ringptngb}{\mathbf{P}} % Prstencové okolí bodu
 
-\newcommand{\positive}[1]{{#1}^{+}}
-\newcommand{\negative}[1]{{#1}^{-}}
+% Plus rep. minus jako horní index, např. \positive\reals jako množina kladných
+% reálných čísel
+\newcommand{\positive}[1]{{#1}^{+}} % Plus v horním indexu
+\newcommand{\negative}[1]{{#1}^{-}} % Minus v horním indexu
 
-\newcommand{\diff}[1]{\mathrm{d} #1}
-\newcommand{\fracdiff}[2]{\frac{\diff{#1}}{\diff{#2}}}
+% Zkratky pro diferenciální počet
+\newcommand{\diff}[1]{\mathrm{d} #1} % d#1
+\newcommand{\fracdiff}[2]{\frac{\diff{#1}}{\diff{#2}}} % d#1/d#2

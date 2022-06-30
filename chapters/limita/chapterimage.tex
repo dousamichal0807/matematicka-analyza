@@ -1,0 +1,122 @@
+\begin{tikzpicture}
+    % Barvy
+    \colorlet{patternColor}{accentColor!70!white}
+    \colorlet{axisColor}{accentColor!60!black}
+    \colorlet{graphColor}{accentColor!30!black}
+    \colorlet{markColor}{accentColor!45!black}
+    \colorlet{helpLineColor}{accentColor!80!black}
+
+    % Zvětšení
+    \def \scalex {3.5}
+    \def \scaley {3.5}
+    \def \scalefont {\fontsize{36pt}{36pt}\selectfont}
+
+    % Tloušťka čáry
+    \def \linethin {1.5pt}
+    \def \linethick {3pt}
+
+    % TikZ styly
+    \tikzstyle{calBraceStyle} = [ % Nastavení svorky
+        pen colour=markColor,
+        line width=\linethick,
+        decorate,
+        decoration={
+            calligraphic brace,
+            amplitude=3mm,
+            raise=1.5mm
+        }
+    ]
+    \tikzstyle{largeCalBraceStyle} = [ % Nastavení svorky
+        pen colour=markColor,
+        line width=\linethick,
+        decorate,
+        decoration={
+            calligraphic brace,
+            amplitude=4.5mm,
+            raise=1.5mm
+        }
+    ]
+    \tikzstyle{axisStyle} = [ % Nastavení vodorovné a svislé osy
+        draw=axisColor,
+        color=axisColor,
+        line width=\linethin
+    ]
+    \tikzstyle{ptNgbStyle} = [ % Osy symetrie okolí
+        draw=helpLineColor,
+        dash pattern=on 4mm off 1mm,
+        line width=\linethin
+    ]
+    \tikzstyle{symAxisStyle} = [ % Osy symetrie okolí
+        draw=helpLineColor,
+        dash pattern=on 4mm off 1mm on 1mm off 1mm,
+        line width=\linethin
+    ]
+    \tikzstyle{graphStyle} = [ % Styl grafu
+        line width=\linethick,
+        draw=graphColor
+    ]
+    \tikzstyle{areaFilament} = [ % Výplň průniku vodorovného a svislého okolí
+        pattern color=patternColor,
+        pattern={Lines[
+            angle=45,
+            distance=2*\linethick,
+            line width=\linethick
+        ]},
+    ]
+
+    % Průnik vodorovného a svislého okolí
+    \fill[areaFilament] (2, 7.525) rectangle (5, 11.591);
+
+    % Epsilon-okolí
+    \draw[ptNgbStyle] (-7, 7.525) -- (14, 7.525);
+    \draw[symAxisStyle] (-7, 9.558) -- (14, 9.558);
+    \draw[ptNgbStyle] (-7, 11.591) -- (14, 11.591);
+    
+    % Delta-okolí
+    \draw[ptNgbStyle] (2, -7) -- (2, 21.5);
+    \draw[symAxisStyle] (3.5, -7) -- (3.5, 21.5);
+    \draw[ptNgbStyle] (5, -7) -- (5, 21.5);
+
+    % Osa x
+    \draw[axisStyle] (-6, 0) -- (13, 0);
+    \foreach \x in {-1,...,3} {
+        \ifnum \x = 0 {} \else
+            \MULTIPLY{\x}{\scalex}{\xs}
+            \draw[axisStyle] (\xs, 0.2) -- (\xs, -0.2) node[anchor=north, inner sep=3mm] {\scalefont $\x$};
+        \fi
+    }
+
+    % Osa y
+    \draw[axisStyle] (0, -7) -- (0, 21.5);
+    \foreach \y in {-1,...,5} {
+        \ifnum \y = 0 {} \else
+            \MULTIPLY{\y}{\scaley}{\ys}
+            \draw[axisStyle] (0.2, \ys) -- (-0.2, \ys) node[anchor=east, inner sep=3mm] {\scalefont $\y$};
+        \fi
+    }
+
+    % Popisky epsilon-okolí
+    \draw[calBraceStyle] (5, 9.558) -- (5, 7.525)
+        node[midway, anchor=west, inner sep=6mm, color=markColor] {\scalefont $\epsilon$};
+    \draw[calBraceStyle] (5, 11.591) -- (5, 9.558)
+        node[midway, anchor=west, inner sep=6mm, color=markColor] {\scalefont $\epsilon$};
+    \draw[largeCalBraceStyle] (6.25, 11.591) -- (6.25, 7.525)
+        node[midway, anchor=west, inner sep=10mm, color=markColor] {\scalefont $\ptngb(L; \epsilon)$};
+
+    % Popisky delta-okolí
+    \draw[calBraceStyle] (5, 7.525) -- (3.5, 7.525)
+        node[midway, anchor=north, inner sep=6mm, color=markColor] {\scalefont $\delta$};
+    \draw[calBraceStyle] (3.5, 7.525) -- (2, 7.525)
+        node[midway, anchor=north, inner sep=6mm, color=markColor] {\scalefont $\delta$};
+    \draw[largeCalBraceStyle] (5, 5.825) -- (2, 5.825)
+        node[midway, anchor=north, inner sep=10mm, color=markColor] {\scalefont $\ringptngb(a; \delta)$};
+
+    % Graf
+    \directlua{
+        local luaimp = require("chapters/limita/chapterimage");
+        luaimp.graph();
+    }
+
+    % Bod [1, 3/ln(3)]
+    \filldraw[graphStyle, fill=accentColor] (3.5, 9.558) circle (0.15);
+\end{tikzpicture}

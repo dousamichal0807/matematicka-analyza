@@ -8,7 +8,7 @@
     {}% Punctuation after theorem head
     {\newline}% Space after theorem head
     {\textsf{\color{accentColor!50!black}\textbf{\thmname{#1} \thmnumber{#2}}
-        \thmnote{\color{accentColor} $\boldsymbol{\cdot}$ \normalcolor \textit{#3}}}
+        \thmnote{\color{accentColor} \textbullet{} \normalcolor \textit{#3}}}
     }% Theorem head spec
 
 \theoremstyle{global}
@@ -20,7 +20,7 @@
     linecolor = accentColor,
     linewidth = .5pt,
     nobreak = true
-]{definition}{Definice}[section]
+]{definition}{Definice}[chapter]
 
 \theoremstyle{global}
 \newmdtheoremenv[

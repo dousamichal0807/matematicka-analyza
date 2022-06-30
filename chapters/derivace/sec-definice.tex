@@ -1,4 +1,4 @@
-\section{Definice}
+\section{Definice derivace}
 \label{sec:derivace-definice}
 
 \emph{Derivace}, někdy též \emph{diferenciál}, vyjadřuje, v~jaké míře jistá
@@ -88,6 +88,13 @@ vyslovíme několik lemmat, které se derivace týkají.
     \end{itemize}
 \end{lemma}
 
+\begin{exercise}
+    Nalezněte alespoň jednu funkci, jejíž derivace v~určité hodnotě $x$ je nulová,
+    tj. směrnice tečny grafu v~daném bodě je nulová, a~přesto nemůžeme v~sebemenším
+    okolí prohlásit funkci jako konstantní. Nápověda: Začněte od~těch nejjednodušších
+    funkčních předpisů, které znáte -- určitě i~tam najdete takové případy.
+\end{exercise}
+
 \begin{lemma}
     Nechť $\mathcal{F}$ je množina všech funkcí ${f: \reals \mapsto \reals}$. Poté se
     na~derivaci můžeme dívat jako na~zobrazení množiny $\mathcal{F}$ do~množiny
@@ -129,18 +136,12 @@ vyslovíme několik lemmat, které se derivace týkají.
     \end{proof}
 \end{lemma}
 
-\begin{exercise}
-    Nalezněte alespoň jednu funkci, jejíž derivace v~určité hodnotě $x$ je nulová,
-    tj. směrnice tečny grafu v~daném bodě je nulová, a~přesto nemůžeme v~sebemenším
-    okolí prohlásit funkci jako konstantní. Nápověda: Začněte od~těch nejjednodušších
-    funkčních předpisů, které znáte -- určitě i~tam najdete takové případy.
-\end{exercise}
-
 \subsection{Formální zápis}
 \label{subsec:derivace-formalni-zapis}
 
-Nakonec bychom si řekli, jak vztah, že funkce~$f'$ je derivací (diferenciálem) funkce
-$f$, zapsat. Vztah mezi funkcemi~$f$ a~$f'$ budeme zapisovat tímto způsobem:
+Také bychom si řekli, jak vztah, že funkce~$f'$ je derivací (diferenciálem)
+funkce~$f$, zapsat.
+Vztah mezi funkcemi~$f$ a~$f'$ budeme zapisovat tímto způsobem:
 \begin{equation*}
     \fracdiff{f}{x} = f'
 \end{equation*}
@@ -240,8 +241,9 @@ ale potřebujeme vyjádřit, čím blíže jsou ty dvě hodnoty na~ose $x$, tím
 k~derivaci blížíme. K~tomu využijeme limitu:
 
 \begin{definition}
-    Mějme funkci~$f$ definovanou v~určitém okolí ${\mathcal{U}(x; \epsilon)}$, kde
-    ${\epsilon \in \positive\reals}$. Existuje-li limita
+    Mějme funkci~$f$ definovanou v~určitém okolí ${\ptngb(x; \varepsilon)}$, kde
+    ${x \in \reals}$ a~${\varepsilon \in \positive{\reals}}$.
+    Existuje-li limita
     \begin{equation*}
         L = \lim_{a \to x} \frac{f(x) - f(a)}{x - a}
     \end{equation*}
@@ -255,8 +257,9 @@ rozdíl $h = a - x$ a~přepíšeme zlomek tak, abychom nepoužili proměnnou~$a$
 Po~určitých úpravách dostaneme odlišný výraz:
 
 \begin{definition}
-    Mějme funkci~$f$ definovanou v~určitém okolí ${\mathcal{U}(x; \epsilon)}$, kde
-    ${\epsilon \in \reals^{+}}$. Existuje-li limita
+    Mějme funkci~$f$ definovanou v~určitém okolí ${\ptngb(x; \varepsilon)}$, kde
+    ${x \in \reals}$ a~${\varepsilon \in \positive{\reals}}$.
+    Existuje-li limita
     \begin{equation*}
         L = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
     \end{equation*}
@@ -264,5 +267,6 @@ Po~určitých úpravách dostaneme odlišný výraz:
     v~dané hodnotě~$x$.
 \end{definition}
 
-S~tímto způsobem definice se zřejmě setkáte častěji. Mějte ale na~paměti, že žádná
-z~definic není \emph{správnější} či \emph{přesnější}.
+S~tímto způsobem definice se zřejmě setkáte častěji.
+Tato druhá definice se nám bude hodit mnohem více.
+Mějte ale na~paměti, že žádná z~definic není \emph{správnější} či \emph{přesnější}.

@@ -1,30 +1,28 @@
 \section{Spojitost funkce}
-\label{sec:limita-spojitost-fce}
+\label{sec:funkce-spojitost}
 
 Ještě před začátkem matematické analýzy je nutno vyslovit několik několik lemmat
 týkajících se spojitosti funkcí.
 Ze~střední školy, možná i~ze~základní, si pamatujete, kdy jste se učili o~intervalech.
 Ty nyní budou zásadní -- na~nich postavíme definice a~lemmata o~spojitosti funkcí.
 Začneme definicí \emph{okolí} a~\emph{prstencového okolí} bodu a~vyslovíme
-\emph{${(\varepsilon, \delta)}$-definici} spojitosti funkce.
+\emph{${(\epsilon, \delta)}$-definici} (čteme \emph{epsilon-delta definici})
+spojitosti funkce.
 
 \subsection{Okolí bodu}
 \label{subsec:limita-spojitost-okoli}
 
 Definice různých druhů okolí bodu nejsou příliš těžké -- tato sekce tedy bude
 obsahovat několik definic, ty však budou jednoduché, proto úlohy budou o~něco
-pracnější -- bez kalkulačky je spočtete velmi těžko\footnote{Pokud vám připadá, že je
-to nemožné, zamyslete se -- matematici před dvěma stoletími neměli kalkulačky --
-i~tak dokázali spočítat chytrými technikami například $\pi$ na~mnoho desetinných
-míst.}\ldots
+pracnější -- bez kalkulačky je spočtete velmi těžko\ldots
 
 \begin{definition}[Okolí bodu]
-    $\varepsilon$-okolí bodu~$a$, kde~${a \in \reals}$
-    a~${\varepsilon \in \positive{\reals}}$, je značeno~${\ptngb(a; \varepsilon)}$
+    $\epsilon$-okolí bodu~$a$, kde~${a \in \reals}$
+    a~${\epsilon \in \positive{\reals}}$, je značeno~${\ptngb(a; \epsilon)}$
     a~jedná se o~množinu všech reálných čísel, jejichž vzdálenost od~čísla~$a$ je
     menší než~$\varepsilon$:
     \begin{equation*}
-        \ptngb(a; \varepsilon) = (a - \varepsilon;\; a + \varepsilon).
+        \ptngb(a; \epsilon) = (a - \epsilon;\; a + \epsilon).
     \end{equation*}
 \end{definition}
 
@@ -44,12 +42,11 @@ míst.}\ldots
 \end{exercise}
 
 \begin{definition}[Levostranné okolí bodu]
-    Levostranné $\epsilon$-okolí bodu~$a$kde~${a \in \reals}$
-    a~${\varepsilon \in \positive{\reals}}$, je značeno~${\negative\ptngb(a; \epsilon)}$
-    a~je jím množina reálních čísel, která jsou menší než~$a$ a~zároveň jsou
-    od~bodu~$a$ vzdálena méně než~$\epsilon$:
+    Levostranné $\epsilon$-okolí bodu~$a$ (${a \in \reals \land \epsilon \in \positive{\reals}}$)
+    je značeno~${\negative\ptngb(a; \epsilon)}$ a~je jím množina reálních čísel,
+    která jsou menší nebo rovna~$a$ a~zároveň jsou od~bodu~$a$ vzdálena méně než~$\epsilon$:
     \begin{equation*}
-        \positive\ptngb(a; \epsilon) = (a - \epsilon;\; a \rangle.
+        \negative{\ptngb}(a; \epsilon) = (a - \epsilon;\; a \rangle.
     \end{equation*}
 \end{definition}
 
@@ -67,12 +64,12 @@ míst.}\ldots
 \end{exercise}
 
 \begin{definition}[Pravostranné okolí bodu]
-    Pravostranné $\epsilon$-okolí bodu~$a$, značené~${\positive\ptngb(a; \epsilon)}$
-    je množina
+    Pravostranné $\epsilon$-okolí bodu~$a$ (${a \in \reals \land \epsilon \in \positive{\reals}}$)
+    je značeno~${\positive{\ptngb}(a; \epsilon)}$ a~je jím množina reálních čísel,
+    která jsou větší nebo rovna~$a$ a~zároveň jsou od~bodu~$a$ vzdálena méně než~$\epsilon$:
     \begin{equation*}
-        \negative\ptngb(a; \epsilon) = \langle a;\; a + \epsilon),
+        \positive{\ptngb}(a; \epsilon) = \langle a;\; a + \epsilon).
     \end{equation*}
-    přičemž musí platit, že ${\epsilon \in \reals^{+}}$ a~${a \in \reals}$.
 \end{definition}
 
 To byly definice \emph{okolí bodu}, \emph{pravostranného okolí bodu}
@@ -128,11 +125,13 @@ o~spojitosti funkce v~bodě. Začneme definicí, kterou následně rozebereme.
 
 \begin{definition}[Spojitost funkce v~bodě]
     \label{def:funkce-spojitost-v-bode}
-    Funkce~$f$ je spojitá v~bodě~$x_0$, pokud pro jakékoliv (sebemenší)
-    ${\epsilon \in \positive\reals}$ a~příslušné okolí ${Y = \ptngb(f(x_0); \epsilon)}$
-    platí, že pokud~${Y \subset \fndom(f)}$, existuje ${\delta \in \positive\reals}$
-    a~k~němu okolí~${X = \ptngb(x_0; \delta)}$ takové, že
+    Funkce~$f$ je spojitá v~bodě~$a$, pokud pro jakékoliv ${\varepsilon \in \positive\reals}$
+    existuje ${\delta \in \positive{\reals}}$ takové, že pro každé~$x$ v~$\delta$-okolí
+    bodu~$a$ je funkční hodnota~$f(x)$ v~$\varepsilon$-okolí funkční hodnoty~$f(x)$:
     \begin{equation*}
-        \forall x \in X : f(x) \in Y
+        \forall \left( \varepsilon \in \positive{\reals} \right) :
+        \exists \left( \delta \in \positive{\reals} \right) :
+        \forall \left[ x \in \ptngb(a; \delta) \right] :
+        f(x) \in \ptngb(f(a); \varepsilon)
     \end{equation*}
 \end{definition}

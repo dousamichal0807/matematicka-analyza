@@ -1,8 +1,8 @@
 \begin{tikzpicture}
-    % Definice barev
+    % Barvy
+    \colorlet{backgroundColor}{accentColor!85!black}
     \colorlet{axisColor}{accentColor!60!black}
     \colorlet{graphColor}{accentColor!30!black}
-    \colorlet{derivGraphColor}{accentColor!30!white}
 
     % Zvětšení
     \def \scalex {2.5}
@@ -11,6 +11,8 @@
     % Tloušťka čáry
     \def \linethin {1pt}
     \def \linethick {2pt}
+
+    \draw[color=backgroundColor] (0, 5) node[anchor=center] {\fontsize{90pt}{100pt}\selectfont $f: \reals \mapsto \reals$};
     
     % Osa x
     \draw[color=axisColor, line width=\linethin] (-9, 0) -- (9, 0);
@@ -32,13 +34,9 @@
         \fi
     }
 
-    % Grafy
+    % Graf
     \directlua{
-        local luaimp = require("chapters/derivace/chapterimage");
+        local luaimp = require("chapters/funkce/chapterimage");
         luaimp.graph();
     }
-
-    % Označení grafů
-    \draw (-5.5, -4) node[color=graphColor, anchor=north west, inner sep=2mm] {\Huge $f(x)$};
-    \draw (-5, 10) node[color=derivGraphColor, anchor=north east, inner sep=2mm] {\Huge $\displaystyle \fracdiff{f}{x}$};
 \end{tikzpicture}

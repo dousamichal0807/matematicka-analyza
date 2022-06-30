@@ -1,48 +1,82 @@
-\begin{tikzpicture}[scale=0.5, every node/.style={transform shape}]
-    % Původní nezvětšená krychle
-    \filldraw[fill=lightgray!90!black] (0, 4) -- (1.5, 5.5) -- (5.5, 5.5) -- (5.5, 1.5) -- (4,0);
-    \filldraw[fill=lightgray] (0, 0) rectangle (4, 4);
-    \draw (4, 4) -- (5.5, 5.5);
+\begin{tikzpicture}[scale=3.5, 3d view={130}{30}]
+    \colorlet{colorA}{lightgray}
+    \colorlet{colorB}{accentColor!50!yellow}
+    \colorlet{colorC}{accentColor}
+    \colorlet{colorD}{red}
 
-    % Horní oranžový kvádr
-    \filldraw[fill=orange!85!black] (0, 6.25) -- (1.5, 7.75) -- (5.5, 7.75) -- (5.5, 7.25) -- (4, 5.75);
-    \filldraw[fill=orange] (0, 6.25) rectangle (4, 5.75);
-    \draw (4, 6.25) -- (5.5, 7.75);
+    \newcommand{\sideShade}[1]{#1!80!black}
+    \newcommand{\topShade}[1]{#1!80!white}
+    \newcommand{\frontShade}[1]{#1}
 
-    % Boční oranžový kvádr
-    \filldraw[fill=orange!85!black] (6.25, 0) -- (7.75, 1.5) -- (7.75, 5.5) -- (7.25, 5.5) -- (5.75, 4);
-    \filldraw[fill=orange] (6.25, 0) rectangle (5.75, 4);
-    \draw (6.25, 4) -- (7.75, 5.5);
+    \def \ri {0.25}
+    \def \ro {0.35}
+    \def \mi {0.4}
+    \def \mo {0.5}
 
-    % Přední oranžový kvádr
-    \filldraw[fill=orange!85!black] (-1.25, 2.75) -- (-1, 3) -- (3, 3) -- (3, -1) -- (2.75, -1.25);
-    \filldraw[fill=orange] (-1.25, 2.75) rectangle (2.75, -1.25);
-    \draw (3, 3) -- (2.75, 2.75);
+    \tikzstyle{largeCalBrace} = [
+        decorate,
+        decoration = {
+            calligraphic brace,
+            amplitude=3mm,
+            raise=1mm,
+        }
+    ]
 
-    % Horní boční modrý kvádr
-    \filldraw[fill=cyan!50!black] (5.75, 6.25) -- (7.25, 7.75) -- (7.75, 7.75) -- (7.75, 7.25) -- (6.25, 5.75);
-    \filldraw[fill=cyan!70!black] (6.25, 6.25) rectangle (5.75, 5.75);
-    \draw (6.25, 6.25) -- (7.75, 7.75);
+    \tikzstyle{smallCalBrace} = [
+        decorate,
+        decoration = {
+            calligraphic brace,
+            amplitude=0.7mm,
+            raise=1mm,
+        }
+    ]
 
-    % Přední boční modrý kvádr
-    \filldraw[fill=cyan!50!black] (5, -1.25) -- (5.25, -1) -- (5.25, 3) -- (4.75, 3) -- (4.5, 2.75);
-    \filldraw[fill=cyan!70!black] (5, -1.25) rectangle (4.5, 2.75);
-    \draw (5.25, 3) -- (5, 2.75);
+    % Původní krychle
+    \fill[color=\frontShade{colorA}] (0, 0, 0) -- (0, -1, 0) -- (0, -1, -1) -- (0, 0, -1);
+    \fill[color=\topShade{colorA}] (0, 0, 0) -- (-1, 0, 0) -- (-1, -1, 0) -- (0, -1, 0);
+    \fill[color=\sideShade{colorA}] (0, 0, 0) -- (0, 0, -1) -- (-1, 0, -1) -- (-1, 0, 0);
 
-    % Přední horní modrý kvádr
-    \filldraw[fill=cyan!50!black] (-1.25, 5) -- (-1, 5.25) -- (3, 5.25) -- (3, 4.75) -- (2.75, 4.5);
-    \filldraw[fill=cyan!70!black] (-1.25, 5) rectangle (2.75, 4.5);
-    \draw (3, 5.25) -- (2.75, 5);
+    % Přední plocha
+    \fill[color=\frontShade{colorB}] (\ro, 0, 0) -- (\ro, 0, -1) -- (\ro, -1, -1) -- (\ro, -1, 0);
+    \fill[color=\topShade{colorB}] (\ro, 0, 0) -- (\ri, 0, 0) -- (\ri, -1, 0) -- (\ro, -1, 0);
+    \fill[color=\sideShade{colorB}] (\ro, 0, 0) -- (\ri, 0, 0) -- (\ri, 0, -1) -- (\ro, 0, -1);
 
-    % Malá růžová krychlička
-    \filldraw[fill=purple!90!black] (4.5, 5) -- (4.75, 5.25) -- (5.25, 5.25) -- (5.25, 4.75) -- (5, 4.5);
-    \filldraw[fill=purple] (4.5, 4.5) rectangle (5, 5);
-    \draw (5, 5) -- (5.25, 5.25);
+    % Horní plocha
+    \fill[color=\frontShade{colorB}] (0, 0, \ro) -- (0, 0, \ri) -- (0, -1, \ri) -- (0, -1, \ro);
+    \fill[color=\topShade{colorB}] (0, 0, \ro) -- (-1, 0, \ro) -- (-1, -1, \ro) -- (0, -1, \ro);
+    \fill[color=\sideShade{colorB}] (0, 0, \ro) -- (0, 0, \ri) -- (-1, 0, \ri) -- (-1, 0, \ro);
 
-    % Svorky, popisky
-    \draw [decorate, decoration = {calligraphic brace, amplitude=1mm}] (2.75, -1.5) -- (-1.25, -1.5);
-    \draw (0.75, -2) node[anchor=north] {\huge $x$};
+    % Boční plocha
+    \fill[color=\frontShade{colorB}] (0, \ro, 0) -- (0, \ri, 0) -- (0, \ri, -1) -- (0, \ro, -1);
+    \fill[color=\topShade{colorB}] (0, \ro, 0) -- (-1, \ro, 0) -- (-1, \ri, 0) -- (0, \ri, 0);
+    \fill[color=\sideShade{colorB}] (0, \ro, 0) -- (-1, \ro, 0) -- (-1, \ro, -1) -- (0, \ro, -1);
 
-    \draw [decorate, decoration = {calligraphic brace, amplitude=.05cm}] (5, -1.5) -- (4.5, -1.5);
-    \draw (4.75, -1.8) node[anchor=north] {\huge $\diff{x}$};
+    % Přední nudle
+    \fill[color=\frontShade{colorC}] (\ro, \ro, 0) -- (\ro, \ri, 0) -- (\ro, \ri, -1) -- (\ro, \ro, -1);
+    \fill[color=\topShade{colorC}] (\ro, \ro, 0) -- (\ro, \ri, 0) -- (\ri, \ri, 0) -- (\ri, \ro, 0);
+    \fill[color=\sideShade{colorC}] (\ro, \ro, 0) -- (\ro, \ro, -1) -- (\ri, \ro, -1) -- (\ri, \ro, 0);
+
+    % Horní přední nudle
+    \fill[color=\frontShade{colorC}] (\ro, 0, \ro) -- (\ro, 0, \ri) -- (\ro, -1, \ri) -- (\ro, -1, \ro);
+    \fill[color=\topShade{colorC}] (\ro, 0, \ro) -- (\ri, 0, \ro) -- (\ri, -1, \ro) -- (\ro, -1, \ro);
+    \fill[color=\sideShade{colorC}] (\ro, 0, \ro) -- (\ri, 0, \ro) -- (\ri, 0, \ri) -- (\ro, 0, \ri);
+
+    % Horní boční nudle
+    \fill[color=\frontShade{colorC}] (0, \ro, \ro) -- (0, \ro, \ri) -- (0, \ri, \ri) -- (0, \ri, \ro);
+    \fill[color=\topShade{colorC}] (0, \ro, \ro) -- (0, \ri, \ro) -- (-1, \ri, \ro) -- (-1, \ro, \ro);
+    \fill[color=\sideShade{colorC}] (0, \ro, \ro) -- (0, \ro, \ri) -- (-1, \ro, \ri) -- (-1, \ro, \ro);
+
+    % Malá krychlička
+    \fill[color=\frontShade{colorD}] (\ro, \ro, \ro) -- (\ro, \ri, \ro) -- (\ro, \ri, \ri) -- (\ro, \ro, \ri);
+    \fill[color=\topShade{colorD}] (\ro, \ro, \ro) -- (\ro, \ri, \ro) -- (\ri, \ri, \ro) -- (\ri, \ro, \ro);
+    \fill[color=\sideShade{colorD}] (\ro, \ro, \ro) -- (\ro, \ro, \ri) -- (\ri, \ro, \ri) -- (\ri, \ro, \ro);
+
+    % Popisky
+    \draw [largeCalBrace] (\ro, 0, -1) -- (\ro, -1, -1) node[midway, anchor=north, inner sep=5mm] {$x \quad$};
+    \draw [smallCalBrace] (\ro, \ro, -1) -- (\ro, \ri, -1) node[midway, anchor=north east, inner sep=1.5mm] {$\diff{x}$};
+    \draw [smallCalBrace] (\ri, \ro, -1) -- (\ro, \ro, -1) node[midway, anchor=north west, inner sep=1.5mm] {$\diff{x}$};
+    \draw [largeCalBrace] (-1, \ro, -1) -- (0, \ro, -1) node[midway, anchor=north west, inner sep=3mm] {$x$};
+    \draw [largeCalBrace] (-1, \ro, 0) -- (-1, \ro, -1) node[midway, anchor=west, inner sep=5mm] {$x$};
+    \draw [smallCalBrace] (-1, \ro, \ro) -- (-1, \ro, \ri) node[midway, anchor=west, inner sep=3mm] {$\diff{x}$};
+
 \end{tikzpicture}

@@ -11,24 +11,31 @@
 
 % Písmo
 \usepackage{fontspec}
-\usepackage{titlesec}
-\usepackage{FiraSans}
+\usepackage{lmodern}
+
+\setsansfont{Fira Sans}
 
 % Rozložení stránky, záhlaví, zápatí
 \usepackage{fancyhdr}
 \usepackage[left=2.5cm, right=2.5cm, top=3cm, bottom=2.5cm]{geometry}
 \usepackage[letterspace=100]{microtype}
+\usepackage{multicol}
 
 % Knihovny TikZ
 \usetikzlibrary{decorations.pathreplacing}
 \usetikzlibrary{calligraphy}
+\usetikzlibrary{patterns}
+\usetikzlibrary{patterns.meta}
+\usetikzlibrary{perspective}
 
 % Matematická písma a balíčky
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{dsfont}
+\usepackage{eucal}
 \usepackage{icomma}
+\usepackage{mathtools}
 
 % Úlohy, definice, lemmata, obrázky, tabulky
 \usepackage{amsthm}
@@ -44,7 +51,7 @@
 \usepackage{enumitem}
 \usepackage{etoolbox}
 \usepackage{luapackageloader}
-\usepackage{multicol}
+\usepackage{titlesec}
 
 \input{prefabs/bugfixes.tex}
 \input{prefabs/chapters.tex}
@@ -67,7 +74,8 @@
 
     \tableofcontents
 
-    \input{chapters/zaklady/index.tex}
+    \input{chapters/cis-obory/index.tex}
+    \input{chapters/funkce/index.tex}
     \input{chapters/limita/index.tex}
     \input{chapters/derivace/index.tex}
     \input{chapters/taylor/index.tex}
